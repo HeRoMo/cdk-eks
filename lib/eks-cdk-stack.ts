@@ -1,6 +1,11 @@
 import { Construct, Stack, StackProps } from '@aws-cdk/core';
-import { Vpc, SubnetType } from '@aws-cdk/aws-ec2';
-import { Role, ServicePrincipal, ManagedPolicy } from '@aws-cdk/aws-iam';
+import { Vpc, SubnetType, InstanceType } from '@aws-cdk/aws-ec2';
+import {
+  AccountRootPrincipal,
+  Role,
+  ManagedPolicy,
+} from '@aws-cdk/aws-iam';
+import { Cluster } from '@aws-cdk/aws-eks';
 
 export class EksCdkStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
@@ -26,9 +31,22 @@ export class EksCdkStack extends Stack {
 
     // EKS用のIAM Role
     const eksRole = new Role(this, 'EksRole', {
-      assumedBy: new ServicePrincipal('eks.amazonaws.com'),
+      roleName: 'MyEKSRole',
+      assumedBy: new AccountRootPrincipal(),
     });
     eksRole.addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName('AmazonEKSClusterPolicy'));
     eksRole.addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName('AmazonEKSServicePolicy'));
+
+    // EKS Cluster
+    const cluster = new Cluster(this, 'cluster', {
+      vpc,
+      mastersRole: eksRole,
+      clusterName: 'MyEKSCluster',
+      defaultCapacity: 0,
+    });
+    cluster.addCapacity('capacity', {
+      desiredCapacity: 2,
+      instanceType: new InstanceType('t3.small'),
+    });
   }
 }

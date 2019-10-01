@@ -4,4 +4,4 @@ import { App } from '@aws-cdk/core';
 import { EksCdkStack } from '../lib/eks-cdk-stack';
 
 const app = new App();
-new EksCdkStack(app, 'EksCdkStack', { env: { region: 'ap-northeast-1' } });
+new EksCdkStack(app, 'EksCdkStack');

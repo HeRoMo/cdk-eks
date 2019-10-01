@@ -1,4 +1,4 @@
-import { Construct, Stack, StackProps } from '@aws-cdk/core';
+import { Construct } from '@aws-cdk/core';
 import { Vpc, SubnetType, InstanceType } from '@aws-cdk/aws-ec2';
 import {
   AccountRootPrincipal,
@@ -6,10 +6,11 @@ import {
   ManagedPolicy,
 } from '@aws-cdk/aws-iam';
 import { Cluster } from '@aws-cdk/aws-eks';
+import { BaseStack } from './base-stack';
 
-export class EksCdkStack extends Stack {
-  constructor(scope: Construct, id: string, props?: StackProps) {
-    super(scope, id, props);
+export class EksCdkStack extends BaseStack {
+  constructor(scope: Construct, id: string) {
+    super(scope, id);
 
     // VPC
     const vpc = new Vpc(this, 'EksVpc', {

@@ -1,0 +1,27 @@
+name: jest
+on:
+  pull_request:
+    types: [opened, synchronize]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.16.x'
+      - name: yarn install
+        run: yarn install
+      - name: TS build
+        run: yarn build
+      - name: Run Jest Test
+        env:
+          CDK_INTEG_REGION: ${{secrets.CDK_INTEG_REGION}}
+          CDK_INTEG_ACCOUNT: ${{secrets.CDK_INTEG_ACCOUNT}}
+        run: yarn test:coverage
+      - name: Upload test coverage artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: coverage
+          path: coverage

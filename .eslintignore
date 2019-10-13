@@ -1,0 +1,7 @@
+bin/**/*.js
+lib/**/*.js
+test/**/*.js
+
+bin/**/*.d.ts
+lib/**/*.d.ts
+test/**/*.d.ts

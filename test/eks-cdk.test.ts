@@ -1,13 +1,12 @@
-import { expect as expectCDK, matchTemplate, MatchStyle } from '@aws-cdk/assert';
+import { SynthUtils } from '@aws-cdk/assert';
 import { App } from '@aws-cdk/core';
+import { VpcStack } from '../lib/vpc-cdk-stack';
 import { EksCdkStack } from '../lib/eks-cdk-stack';
 
-test('Empty Stack', () => {
+test('Snapshot Test', () => {
   const app = new App();
-  // WHEN
-  const stack = new EksCdkStack(app, 'MyTestStack');
-  // THEN
-  expectCDK(stack).to(matchTemplate({
-    Resources: {},
-  }, MatchStyle.EXACT));
+  const vpcStack = new VpcStack(app, 'MyTestVpcStack');
+  const EksStack = new EksCdkStack(app, 'MyTestEksCdkStack', { vpc: vpcStack.vpc });
+  expect(SynthUtils.toCloudFormation(vpcStack)).toMatchSnapshot();
+  expect(SynthUtils.toCloudFormation(EksStack)).toMatchSnapshot();
 });

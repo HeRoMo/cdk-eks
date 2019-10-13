@@ -8,30 +8,30 @@
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
-    "lint": "eslint ./lib/**/* ./test/**/*",
+    "lint": "eslint ./{bin,lib,test}/**/*.ts",
     "cdk": "cdk"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "^1.8.0",
+    "@aws-cdk/assert": "^1.12.0",
     "@types/jest": "^24.0.18",
     "@types/source-map-support": "^0.5.0",
-    "@typescript-eslint/eslint-plugin": "^2.2.0",
-    "@typescript-eslint/parser": "^2.2.0",
-    "aws-cdk": "^1.8.0",
-    "eslint": "^6.4.0",
+    "@typescript-eslint/eslint-plugin": "^2.3.3",
+    "@typescript-eslint/parser": "^2.3.3",
+    "aws-cdk": "^1.12.0",
+    "eslint": "^6.5.1",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jest": "^22.17.0",
+    "eslint-plugin-jest": "^22.19.0",
     "jest": "^24.9.0",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.1.0",
-    "typescript": "~3.6.2"
+    "typescript": "^3.6.4"
   },
   "dependencies": {
-    "@aws-cdk/aws-ec2": "^1.8.0",
-    "@aws-cdk/aws-eks": "^1.8.0",
-    "@aws-cdk/aws-iam": "^1.8.0",
-    "@aws-cdk/core": "^1.8.0",
+    "@aws-cdk/aws-ec2": "^1.12.0",
+    "@aws-cdk/aws-eks": "^1.12.0",
+    "@aws-cdk/aws-iam": "^1.12.0",
+    "@aws-cdk/core": "^1.12.0",
     "source-map-support": "^0.5.9"
   }
 }

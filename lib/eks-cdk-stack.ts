@@ -1,33 +1,16 @@
-import { Construct, Stack, StackProps } from '@aws-cdk/core';
-import { Vpc, SubnetType, InstanceType } from '@aws-cdk/aws-ec2';
+import { Construct } from '@aws-cdk/core';
+import { Vpc, InstanceType } from '@aws-cdk/aws-ec2';
 import {
   AccountRootPrincipal,
   Role,
   ManagedPolicy,
 } from '@aws-cdk/aws-iam';
 import { Cluster } from '@aws-cdk/aws-eks';
+import { BaseStack } from './base-stack';
 
-export class EksCdkStack extends Stack {
-  constructor(scope: Construct, id: string, props?: StackProps) {
-    super(scope, id, props);
-
-    // VPC
-    const vpc = new Vpc(this, 'EksVpc', {
-      cidr: '10.0.0.0/16',
-      natGateways: 1,
-      subnetConfiguration: [
-        {
-          cidrMask: 24,
-          name: 'Public',
-          subnetType: SubnetType.PUBLIC,
-        },
-        {
-          cidrMask: 24,
-          name: 'Private',
-          subnetType: SubnetType.PRIVATE,
-        },
-      ],
-    });
+export class EksCdkStack extends BaseStack {
+  constructor(scope: Construct, id: string, props: { vpc: Vpc }) {
+    super(scope, id);
 
     // EKS用のIAM Role
     const eksRole = new Role(this, 'EksRole', {
@@ -39,7 +22,7 @@ export class EksCdkStack extends Stack {
 
     // EKS Cluster
     const cluster = new Cluster(this, 'cluster', {
-      vpc,
+      vpc: props.vpc,
       mastersRole: eksRole,
       clusterName: 'MyEKSCluster',
       defaultCapacity: 0,

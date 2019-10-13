@@ -17,8 +17,8 @@ jobs:
         run: yarn build
       - name: Run Jest Test
         env:
-          CDK_INTEG_REGION: ${{secret.CDK_INTEG_REGION}}
-          CDK_INTEG_ACCOUNT: ${{secret.CDK_INTEG_ACCOUNT}}
+          CDK_INTEG_REGION: ${{secrets.CDK_INTEG_REGION}}
+          CDK_INTEG_ACCOUNT: ${{secrets.CDK_INTEG_ACCOUNT}}
         run: yarn test:coverage
       - name: Upload test coverage artifact
         uses: actions/upload-artifact@v1

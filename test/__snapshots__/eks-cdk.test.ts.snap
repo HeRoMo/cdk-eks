@@ -590,16 +590,16 @@ Object {
       "Description": "S3 key for asset version \\"640847533c8a00b3133aeb128edcac41fb7b60349c9e18764fcf7ea4af14d444\\"",
       "Type": "String",
     },
-    "AssetParametersc58ce740cd907e33a1af503069821ee4befab4fec4075707d67e86d2a0dbf128ArtifactHash8E5121DE": Object {
-      "Description": "Artifact hash for asset \\"c58ce740cd907e33a1af503069821ee4befab4fec4075707d67e86d2a0dbf128\\"",
+    "AssetParametersea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204ArtifactHashB80B497F": Object {
+      "Description": "Artifact hash for asset \\"ea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204\\"",
       "Type": "String",
     },
-    "AssetParametersc58ce740cd907e33a1af503069821ee4befab4fec4075707d67e86d2a0dbf128S3BucketA2C12383": Object {
-      "Description": "S3 bucket for asset \\"c58ce740cd907e33a1af503069821ee4befab4fec4075707d67e86d2a0dbf128\\"",
+    "AssetParametersea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204S3Bucket371D99F8": Object {
+      "Description": "S3 bucket for asset \\"ea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204\\"",
       "Type": "String",
     },
-    "AssetParametersc58ce740cd907e33a1af503069821ee4befab4fec4075707d67e86d2a0dbf128S3VersionKeyB5F0BEF8": Object {
-      "Description": "S3 key for asset version \\"c58ce740cd907e33a1af503069821ee4befab4fec4075707d67e86d2a0dbf128\\"",
+    "AssetParametersea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204S3VersionKeyFDCB25DD": Object {
+      "Description": "S3 key for asset version \\"ea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204\\"",
       "Type": "String",
     },
     "SsmParameterValueawsserviceeksoptimizedami114amazonlinux2recommendedimageidC96584B6F00A464EAD1953AFF4B05118Parameter": Object {
@@ -624,7 +624,7 @@ Object {
                       Object {
                         "Ref": "AWS::Partition",
                       },
-                      ":iam::832744255614:root",
+                      ":iam::999999999999:root",
                     ],
                   ],
                 },
@@ -910,7 +910,7 @@ Object {
       "Properties": Object {
         "Code": Object {
           "S3Bucket": Object {
-            "Ref": "AssetParametersc58ce740cd907e33a1af503069821ee4befab4fec4075707d67e86d2a0dbf128S3BucketA2C12383",
+            "Ref": "AssetParametersea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204S3Bucket371D99F8",
           },
           "S3Key": Object {
             "Fn::Join": Array [
@@ -923,7 +923,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParametersc58ce740cd907e33a1af503069821ee4befab4fec4075707d67e86d2a0dbf128S3VersionKeyB5F0BEF8",
+                          "Ref": "AssetParametersea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204S3VersionKeyFDCB25DD",
                         },
                       ],
                     },
@@ -936,7 +936,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParametersc58ce740cd907e33a1af503069821ee4befab4fec4075707d67e86d2a0dbf128S3VersionKeyB5F0BEF8",
+                          "Ref": "AssetParametersea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204S3VersionKeyFDCB25DD",
                         },
                       ],
                     },
@@ -976,6 +976,7 @@ Object {
                 "eks:CreateCluster",
                 "eks:DescribeCluster",
                 "eks:DeleteCluster",
+                "eks:UpdateClusterVersion",
               ],
               "Effect": "Allow",
               "Resource": "*",
@@ -1306,7 +1307,7 @@ set -o xtrace
                 Object {
                   "Ref": "clusterC5B25D0D",
                 },
-                " --kubelet-extra-args \\"--node-labels lifecycle=OnDemand\\"
+                " --kubelet-extra-args \\"--node-labels lifecycle=OnDemand\\" --use-max-pods true
 /opt/aws/bin/cfn-signal --exit-code $? --stack MyTestEksCdkStack --resource clustercapacityASG18452D96 --region ap-northeast-1",
               ],
             ],

@@ -14,6 +14,8 @@ CDK sample for EKS
 $ git clone https://github.com/HeRoMo/cdk-eks.git
 $ yarn
 $ cdk bootstrap aws://<your account ID>/ap-northeast-1
+$ export CDK_INTEG_REGION=<your region>
+$ export CDK_INTEG_ACCOUNT=<your account ID>
 $ yarn build
 $ cdk deploy
 ```
@@ -35,4 +37,4 @@ $ kubectl get svc
  * `cdk synth`    emits the synthesized CloudFormation template
 
 ## License
-[MIT](LICENSE)
+[Apache License 2.0](LICENSE)

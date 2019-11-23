@@ -381,6 +381,10 @@ Object {
             "Key": "aws-cdk:subnet-type",
             "Value": "Public",
           },
+          Object {
+            "Key": "kubernetes.io/role/elb",
+            "Value": "1",
+          },
         ],
         "VpcId": Object {
           "Ref": "EksVpc4BB427FA",
@@ -446,6 +450,10 @@ Object {
             "Key": "aws-cdk:subnet-type",
             "Value": "Public",
           },
+          Object {
+            "Key": "kubernetes.io/role/elb",
+            "Value": "1",
+          },
         ],
         "VpcId": Object {
           "Ref": "EksVpc4BB427FA",
@@ -510,6 +518,10 @@ Object {
           Object {
             "Key": "aws-cdk:subnet-type",
             "Value": "Public",
+          },
+          Object {
+            "Key": "kubernetes.io/role/elb",
+            "Value": "1",
           },
         ],
         "VpcId": Object {
@@ -590,16 +602,16 @@ Object {
       "Description": "S3 key for asset version \\"640847533c8a00b3133aeb128edcac41fb7b60349c9e18764fcf7ea4af14d444\\"",
       "Type": "String",
     },
-    "AssetParametersc58ce740cd907e33a1af503069821ee4befab4fec4075707d67e86d2a0dbf128ArtifactHash8E5121DE": Object {
-      "Description": "Artifact hash for asset \\"c58ce740cd907e33a1af503069821ee4befab4fec4075707d67e86d2a0dbf128\\"",
+    "AssetParametersea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204ArtifactHashB80B497F": Object {
+      "Description": "Artifact hash for asset \\"ea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204\\"",
       "Type": "String",
     },
-    "AssetParametersc58ce740cd907e33a1af503069821ee4befab4fec4075707d67e86d2a0dbf128S3BucketA2C12383": Object {
-      "Description": "S3 bucket for asset \\"c58ce740cd907e33a1af503069821ee4befab4fec4075707d67e86d2a0dbf128\\"",
+    "AssetParametersea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204S3Bucket371D99F8": Object {
+      "Description": "S3 bucket for asset \\"ea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204\\"",
       "Type": "String",
     },
-    "AssetParametersc58ce740cd907e33a1af503069821ee4befab4fec4075707d67e86d2a0dbf128S3VersionKeyB5F0BEF8": Object {
-      "Description": "S3 key for asset version \\"c58ce740cd907e33a1af503069821ee4befab4fec4075707d67e86d2a0dbf128\\"",
+    "AssetParametersea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204S3VersionKeyFDCB25DD": Object {
+      "Description": "S3 key for asset version \\"ea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204\\"",
       "Type": "String",
     },
     "SsmParameterValueawsserviceeksoptimizedami114amazonlinux2recommendedimageidC96584B6F00A464EAD1953AFF4B05118Parameter": Object {
@@ -624,7 +636,7 @@ Object {
                       Object {
                         "Ref": "AWS::Partition",
                       },
-                      ":iam::832744255614:root",
+                      ":iam::999999999999:root",
                     ],
                   ],
                 },
@@ -910,7 +922,7 @@ Object {
       "Properties": Object {
         "Code": Object {
           "S3Bucket": Object {
-            "Ref": "AssetParametersc58ce740cd907e33a1af503069821ee4befab4fec4075707d67e86d2a0dbf128S3BucketA2C12383",
+            "Ref": "AssetParametersea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204S3Bucket371D99F8",
           },
           "S3Key": Object {
             "Fn::Join": Array [
@@ -923,7 +935,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParametersc58ce740cd907e33a1af503069821ee4befab4fec4075707d67e86d2a0dbf128S3VersionKeyB5F0BEF8",
+                          "Ref": "AssetParametersea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204S3VersionKeyFDCB25DD",
                         },
                       ],
                     },
@@ -936,7 +948,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParametersc58ce740cd907e33a1af503069821ee4befab4fec4075707d67e86d2a0dbf128S3VersionKeyB5F0BEF8",
+                          "Ref": "AssetParametersea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204S3VersionKeyFDCB25DD",
                         },
                       ],
                     },
@@ -976,6 +988,7 @@ Object {
                 "eks:CreateCluster",
                 "eks:DescribeCluster",
                 "eks:DeleteCluster",
+                "eks:UpdateClusterVersion",
               ],
               "Effect": "Allow",
               "Resource": "*",
@@ -1154,6 +1167,9 @@ Object {
               ],
             ],
           },
+          Object {
+            "Fn::ImportValue": "MyTestEksCdkStackALBIngressControllerIAMPolicyStack2240B048:ALBIngressControllerIAMPolicyStackExportsOutputRefALBIngressControllerIAMPolicy8771FD6337FC0C44",
+          },
         ],
         "Tags": Array [
           Object {
@@ -1306,7 +1322,7 @@ set -o xtrace
                 Object {
                   "Ref": "clusterC5B25D0D",
                 },
-                " --kubelet-extra-args \\"--node-labels lifecycle=OnDemand\\"
+                " --kubelet-extra-args \\"--node-labels lifecycle=OnDemand\\" --use-max-pods true
 /opt/aws/bin/cfn-signal --exit-code $? --stack MyTestEksCdkStack --resource clustercapacityASG18452D96 --region ap-northeast-1",
               ],
             ],
@@ -1314,6 +1330,49 @@ set -o xtrace
         },
       },
       "Type": "AWS::AutoScaling::LaunchConfiguration",
+    },
+    "clustermanifestalbingresscontroller8AE8469A": Object {
+      "DeletionPolicy": "Delete",
+      "Properties": Object {
+        "Manifest": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "[{\\"apiVersion\\":\\"apps/v1\\",\\"kind\\":\\"Deployment\\",\\"metadata\\":{\\"labels\\":{\\"app.kubernetes.io/name\\":\\"alb-ingress-controller\\"},\\"name\\":\\"alb-ingress-controller\\",\\"namespace\\":\\"kube-system\\"},\\"spec\\":{\\"selector\\":{\\"matchLabels\\":{\\"app.kubernetes.io/name\\":\\"alb-ingress-controller\\"}},\\"template\\":{\\"metadata\\":{\\"labels\\":{\\"app.kubernetes.io/name\\":\\"alb-ingress-controller\\"}},\\"spec\\":{\\"containers\\":[{\\"name\\":\\"alb-ingress-controller\\",\\"args\\":[\\"--ingress-class=alb\\",\\"--cluster-name=",
+              Object {
+                "Ref": "clusterC5B25D0D",
+              },
+              "\\",\\"--aws-vpc-id=",
+              Object {
+                "Fn::ImportValue": "MyTestVpcStack:ExportsOutputRefEksVpc4BB427FA336B0142",
+              },
+              "\\",\\"--aws-region=ap-northeast-1\\"],\\"image\\":\\"docker.io/amazon/aws-alb-ingress-controller:v1.1.3\\"}],\\"serviceAccountName\\":\\"alb-ingress-controller\\"}}}}]",
+            ],
+          ],
+        },
+        "ServiceToken": Object {
+          "Fn::GetAtt": Array [
+            "clusterKubernetesResourceHandlerC33DE9FA",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "Custom::AWSCDK-EKS-KubernetesResource",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "clustermanifestrbacroleCE3EC6EE": Object {
+      "DeletionPolicy": "Delete",
+      "Properties": Object {
+        "Manifest": "[{\\"apiVersion\\":\\"rbac.authorization.k8s.io/v1\\",\\"kind\\":\\"ClusterRole\\",\\"metadata\\":{\\"labels\\":{\\"app.kubernetes.io/name\\":\\"alb-ingress-controller\\"},\\"name\\":\\"alb-ingress-controller\\"},\\"rules\\":[{\\"apiGroups\\":[\\"\\",\\"extensions\\"],\\"resources\\":[\\"configmaps\\",\\"endpoints\\",\\"events\\",\\"ingresses\\",\\"ingresses/status\\",\\"services\\"],\\"verbs\\":[\\"create\\",\\"get\\",\\"list\\",\\"update\\",\\"watch\\",\\"patch\\"]},{\\"apiGroups\\":[\\"\\",\\"extensions\\"],\\"resources\\":[\\"nodes\\",\\"pods\\",\\"secrets\\",\\"services\\",\\"namespaces\\"],\\"verbs\\":[\\"get\\",\\"list\\",\\"watch\\"]}]},{\\"apiVersion\\":\\"rbac.authorization.k8s.io/v1\\",\\"kind\\":\\"ClusterRoleBinding\\",\\"metadata\\":{\\"labels\\":{\\"app.kubernetes.io/name\\":\\"alb-ingress-controller\\"},\\"name\\":\\"alb-ingress-controller\\"},\\"roleRef\\":{\\"apiGroup\\":\\"rbac.authorization.k8s.io\\",\\"kind\\":\\"ClusterRole\\",\\"name\\":\\"alb-ingress-controller\\"},\\"subjects\\":[{\\"kind\\":\\"ServiceAccount\\",\\"name\\":\\"alb-ingress-controller\\",\\"namespace\\":\\"kube-system\\"}]},{\\"apiVersion\\":\\"v1\\",\\"kind\\":\\"ServiceAccount\\",\\"metadata\\":{\\"labels\\":{\\"app.kubernetes.io/name\\":\\"alb-ingress-controller\\"},\\"name\\":\\"alb-ingress-controller\\",\\"namespace\\":\\"kube-system\\"}}]",
+        "ServiceToken": Object {
+          "Fn::GetAtt": Array [
+            "clusterKubernetesResourceHandlerC33DE9FA",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "Custom::AWSCDK-EKS-KubernetesResource",
+      "UpdateReplacePolicy": "Delete",
     },
     "kubectllayer8C2542BCBF2B4DFEB765E181FD30A9A0617C4ADA": Object {
       "Properties": Object {

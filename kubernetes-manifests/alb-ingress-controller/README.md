@@ -16,3 +16,7 @@ $ wget https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-control
 $ wget https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.1.3/docs/examples/alb-ingress-controller.yaml
 ```
 
+## Reference
+
+https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html
+

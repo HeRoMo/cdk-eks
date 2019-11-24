@@ -12,7 +12,7 @@ import { AutoScalingGroup } from '@aws-cdk/aws-autoscaling';
 import ALBIngressControllerIAMPolicyStack from './policies/ALBIngressControllerIAMPolicyStack';
 import ClusterAutoScalerPolicyStack from './policies/ClusterAutoScalerPolicyStack';
 import { BaseStack } from './base-stack';
-import { loadManifestYaml } from './utils/manifest_reader';
+import { loadManifestYaml, loadManifestYamlAll } from './utils/manifest_reader';
 
 export class EksCdkStack extends BaseStack {
   public readonly cluster: Cluster;
@@ -42,7 +42,14 @@ export class EksCdkStack extends BaseStack {
     });
 
     this.appendClusterAutoscaler(autoScalingGroup);
+    this.appendMetricsServer();
     this.appendAlbIngressController(autoScalingGroup.role);
+  }
+
+  private appendMetricsServer(): void {
+    const dirPath = 'kubernetes-manifests/metrics-server';
+    const manifects = loadManifestYamlAll(dirPath);
+    this.cluster.addResource('metrics-server', ...manifects);
   }
 
   /**

@@ -30,7 +30,7 @@
     "@aws-cdk/aws-iam" "1.17.1"
     "@aws-cdk/core" "1.17.1"
 
-"@aws-cdk/aws-autoscaling@1.17.1":
+"@aws-cdk/aws-autoscaling@1.17.1", "@aws-cdk/aws-autoscaling@^1.17.1":
   version "1.17.1"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-autoscaling/-/aws-autoscaling-1.17.1.tgz#9c4cd212b9bd28a7b7b9c1df14116243ed2bcdd1"
   integrity sha512-6M89k339aEbKPUqHqSxOxoZKmJoTCoxJLr4pqDyK5FrrhmOXw8j/xANs4aHi4JkreZRwULB6yTwViPwlOjUE6w==

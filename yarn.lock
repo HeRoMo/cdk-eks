@@ -237,6 +237,13 @@
   dependencies:
     md5 "^2.2.1"
 
+"@aws-cdk/cfnspec@1.18.0":
+  version "1.18.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/cfnspec/-/cfnspec-1.18.0.tgz#ea03bfd1bfc68b23e7d2ad7189cc04b8fc616132"
+  integrity sha512-zTwVQ2c/8jYcM7CPEw7//c9b5bSEvR8cY1Iv9iddHuvmMjD0I8Z96JOOm6LNXn5K8vJnM2W3RkZmj6C4R9ix4A==
+  dependencies:
+    md5 "^2.2.1"
+
 "@aws-cdk/cloudformation-diff@1.17.1":
   version "1.17.1"
   resolved "https://registry.yarnpkg.com/@aws-cdk/cloudformation-diff/-/cloudformation-diff-1.17.1.tgz#e6750864cb5cccadb182a1ee2eeedec84994751b"
@@ -244,6 +251,20 @@
   dependencies:
     "@aws-cdk/cfnspec" "1.17.1"
     "@aws-cdk/cx-api" "1.17.1"
+    colors "^1.4.0"
+    diff "^4.0.1"
+    fast-deep-equal "^2.0.1"
+    source-map-support "^0.5.16"
+    string-width "^4.2.0"
+    table "^5.4.6"
+
+"@aws-cdk/cloudformation-diff@1.18.0":
+  version "1.18.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/cloudformation-diff/-/cloudformation-diff-1.18.0.tgz#25bea6cf4b7942eed0256f7bab9e616c1cb76fe0"
+  integrity sha512-EzwewRr0AcVZBk0C22hdBkW2shiIdOxeEHjOlWkbqYVPJmFuBBML6K1+wp6R1sWdQ5Pzzx5VXO/hAmdCRTDEGQ==
+  dependencies:
+    "@aws-cdk/cfnspec" "1.18.0"
+    "@aws-cdk/cx-api" "1.18.0"
     colors "^1.4.0"
     diff "^4.0.1"
     fast-deep-equal "^2.0.1"
@@ -265,10 +286,22 @@
   dependencies:
     semver "^6.3.0"
 
+"@aws-cdk/cx-api@1.18.0":
+  version "1.18.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/cx-api/-/cx-api-1.18.0.tgz#f9055df912a9fe6caa781f06adeba86f8ca4e9fd"
+  integrity sha512-2v7eeErBOtjhGjvxSutWP1pddb1lXOf91uGXym2DGq+t3YobM3rDWZW3bkBRtVCx8ZJ/6V+3qCJ10dMzto2xNQ==
+  dependencies:
+    semver "^6.3.0"
+
 "@aws-cdk/region-info@1.17.1":
   version "1.17.1"
   resolved "https://registry.yarnpkg.com/@aws-cdk/region-info/-/region-info-1.17.1.tgz#b15b2d1f161703136e2ba88c00d5ce7fe0c54f03"
   integrity sha512-7zhAfFbLlX8LRJtkpb9+3erMTKY7N8zICgcgsQF1RxJD09ZBy7+Ad7TXcUZGbCmqJgYQFCYFrlyI+6NfGGZraw==
+
+"@aws-cdk/region-info@1.18.0":
+  version "1.18.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/region-info/-/region-info-1.18.0.tgz#aec71c972bea401c19a76160773eaea306f4bb7f"
+  integrity sha512-6nWNf/IXgByFWf0iaV71Q6ocSaYzuAqvyqFIPfzXSAsSeKtoljC1ih9tzhZbbLrf8fHrM4DW3DPYxYUJrRf/DA==
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.5.5":
   version "7.5.5"
@@ -979,16 +1012,16 @@ atob@^2.1.1:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-aws-cdk@^1.17.1:
-  version "1.17.1"
-  resolved "https://registry.yarnpkg.com/aws-cdk/-/aws-cdk-1.17.1.tgz#02fcd2d56acfc218c169a01f3d6a8cdcf0efd22e"
-  integrity sha512-QBj4J1BwOhyns39dBAmz6i1rlpL1Wakd4uieget53FqwqSujIo9PYaJIgYbTsBPbDTqsm4s/iomd9nzBnf9S9A==
+aws-cdk@^1.18.0:
+  version "1.18.0"
+  resolved "https://registry.yarnpkg.com/aws-cdk/-/aws-cdk-1.18.0.tgz#a04e0e02d7825a86858227bf657b65239e02b9d3"
+  integrity sha512-3sSLFOode5che27HXvgDkaw5596UYhnUPLDGli8ieaHtJ6Hl44DHVTMXUwEugk8XmJiRzqPRgJG1pKsUD7wAiA==
   dependencies:
-    "@aws-cdk/cloudformation-diff" "1.17.1"
-    "@aws-cdk/cx-api" "1.17.1"
-    "@aws-cdk/region-info" "1.17.1"
+    "@aws-cdk/cloudformation-diff" "1.18.0"
+    "@aws-cdk/cx-api" "1.18.0"
+    "@aws-cdk/region-info" "1.18.0"
     archiver "^3.1.1"
-    aws-sdk "^2.574.0"
+    aws-sdk "^2.575.0"
     camelcase "^5.3.1"
     colors "^1.4.0"
     decamelize "^3.2.0"
@@ -1005,10 +1038,10 @@ aws-cdk@^1.17.1:
     yaml "^1.7.2"
     yargs "^15.0.1"
 
-aws-sdk@^2.574.0:
-  version "2.578.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.578.0.tgz#afba0c4107869ea4da092e9801d24b057e043b95"
-  integrity sha512-QOot7ha8J+w+AQf1UNzpGpbcZtCaK/mqjenG177ybm2nvm00a4PKa5dz/kF/bYi2qMx9yJmiQ17kn32Q5ar8Kg==
+aws-sdk@^2.575.0:
+  version "2.580.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.580.0.tgz#b411168ab3b92a1c2977e9c020406af2a5b74cf7"
+  integrity sha512-YUn/LgaSjWuFDCAIOiOvyXbuRpNEzTPLbwRs3GpEmrP1hJrOChXh0p7GH61sTZdeJZarCSETUOWU5ngjpCOjKA==
   dependencies:
     buffer "^4.9.1"
     events "^1.1.1"

@@ -25,7 +25,7 @@ export default class ClusterAutoScalerPolicyStack extends BaseStack {
           ],
           resources: ['*'],
         }),
-      ]
+      ],
     });
   }
 }

@@ -1,6 +1,15 @@
 # cdk-eks
 
-CDK sample for EKS
+A CDK sample of EKS
+
+This CDK project create EKS cluster with the following kubernetes resouces
+
+- [Metrics Server](https://github.com/kubernetes-sigs/metrics-server)
+- [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler/cloudprovider/aws)
+- [AWS ALB Ingress Controller](https://github.com//kubernetes-sigs/aws-alb-ingress-controller)
+
+Ready for auto scaling pods and worker-nodes.
+Ready for publish your application via AWS ALB.
 
 ## Requirements
 
@@ -10,31 +19,24 @@ CDK sample for EKS
 
 ## Deploy
 
-```
+```bash
 $ git clone https://github.com/HeRoMo/cdk-eks.git
 $ yarn
 $ cdk bootstrap aws://<your account ID>/ap-northeast-1
 $ export CDK_INTEG_REGION=<your region>
 $ export CDK_INTEG_ACCOUNT=<your account ID>
 $ yarn build
-$ cdk deploy
+$ cdk deploy *Stack 
 ```
 
-## Kubectl config
+After deploy the stacks, copy and run the outputs command (`aws eks update-kubeconfig --name MyEKSCluster ...`) to update your kubeconfig.
 
-```
-$ aws eks --region ap-northeast-1 update-kubeconfig --name MyEKSCluster --role-arn arn:aws:iam::<your account ID>:role/MyEKSRole
-$ kubectl get svc
-```
 
-## Useful commands
 
- * `yarn build`   compile typescript to js
- * `yarn watch`   watch for changes and compile
- * `yarn test`    perform the jest unit tests
- * `cdk deploy`   deploy this stack to your default AWS account/region
- * `cdk diff`     compare deployed stack with current state
- * `cdk synth`    emits the synthesized CloudFormation template
+## More Information about EKS and resources
+- [What Is Amazon EKS? \- Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html)
+- [Resource metrics pipeline \- Kubernetes](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/)
+- [Welcome \- AWS ALB Ingress Controller](https://kubernetes-sigs.github.io/aws-alb-ingress-controller/)
 
 ## License
 [Apache License 2.0](LICENSE)

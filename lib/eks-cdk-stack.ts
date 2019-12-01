@@ -11,8 +11,12 @@ import { AutoScalingGroup } from '@aws-cdk/aws-autoscaling';
 
 import ALBIngressControllerIAMPolicyStack from './policies/ALBIngressControllerIAMPolicyStack';
 import ClusterAutoScalerPolicyStack from './policies/ClusterAutoScalerPolicyStack';
+import ExternalDNSPolicyStack from './policies/ExternalDNSPolicyStack';
+
 import { BaseStack } from './base-stack';
 import { loadManifestYaml, loadManifestYamlAll } from './utils/manifest_reader';
+
+import { appDomain } from './config';
 
 export class EksCdkStack extends BaseStack {
   public readonly cluster: Cluster;
@@ -44,6 +48,7 @@ export class EksCdkStack extends BaseStack {
     this.appendClusterAutoscaler(autoScalingGroup);
     this.appendMetricsServer();
     this.appendAlbIngressController(autoScalingGroup.role);
+    this.appendExternalDns(autoScalingGroup.role);
   }
 
   private appendMetricsServer(): void {
@@ -105,5 +110,23 @@ export class EksCdkStack extends BaseStack {
       process.exit(1);
     }
     this.cluster.addResource('alb-ingress-controller', albIngressControllerManifests);
+  }
+
+  private appendExternalDns(clusterNodeRole: IRole): void {
+    const stack = new ExternalDNSPolicyStack(this, 'ExternalDNSPolicyStack');
+    clusterNodeRole.addManagedPolicy(stack.policy);
+    const externalDnsManifests = loadManifestYaml('kubernetes-manifests/exterrnal-dns/external-dns.yaml');
+
+    const externalDnsDeployment = externalDnsManifests.find((manifest) => {
+      return manifest.kind === 'Deployment' && manifest.metadata.name === 'external-dns';
+    });
+    const container = externalDnsDeployment.spec.template.spec.containers[0];
+    container.args = container.args.map((arg: string) => {
+      if (arg.startsWith('--domain-filter=')) {
+        return `--domain-filter=${appDomain}`;
+      }
+      return arg;
+    });
+    this.cluster.addResource('extrernal-dns', ...externalDnsManifests);
   }
 }

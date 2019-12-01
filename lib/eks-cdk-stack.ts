@@ -117,6 +117,7 @@ export class EksCdkStack extends BaseStack {
     clusterNodeRole.addManagedPolicy(stack.policy);
     const externalDnsManifests = loadManifestYaml('kubernetes-manifests/exterrnal-dns/external-dns.yaml');
 
+    // eslint-disable-next-line arrow-body-style
     const externalDnsDeployment = externalDnsManifests.find((manifest) => {
       return manifest.kind === 'Deployment' && manifest.metadata.name === 'external-dns';
     });

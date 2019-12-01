@@ -9,8 +9,8 @@
     "watch": "tsc -w",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "lint": "eslint ./{bin,lib,test}/**/*.ts",
-    "clean": "rm -f ./{bin,lib,test}/*.{d.ts,js} ./{bin,lib,test}/**/*.{d.ts,js}",
+    "lint": "eslint ./{bin,lib,test}/{**/,}*.ts",
+    "clean": "rm -f ./{bin,lib,test}/{**/,}*.{d.ts,js}",
     "cdk": "cdk"
   },
   "devDependencies": {

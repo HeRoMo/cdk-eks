@@ -17,13 +17,16 @@ import { loadManifestYaml, loadManifestYamlAll } from './utils/manifest_reader';
 import { appDomain } from './config';
 import PolicyStack from './policies/PolicyStack';
 
+/**
+ * Create EKS cluster with kubernetes resources related with AWS resources
+ */
 export class EksCdkStack extends BaseStack {
   public readonly cluster: Cluster;
 
   constructor(scope: Construct, id: string, props: { vpc: Vpc }) {
     super(scope, id);
 
-    // EKS用のIAM Role
+    // IAM Role for EKS
     const eksRole = new Role(this, 'EksRole', {
       roleName: 'MyEKSRole',
       assumedBy: new AccountRootPrincipal(),
@@ -44,6 +47,7 @@ export class EksCdkStack extends BaseStack {
       instanceType: new InstanceType('t3.small'),
     });
 
+    // Create kubernetes resources
     this.appendAlbIngressController(autoScalingGroup.role);
     this.appendClusterAutoscaler(autoScalingGroup);
     this.appendEbsCsiDriver(autoScalingGroup.role);

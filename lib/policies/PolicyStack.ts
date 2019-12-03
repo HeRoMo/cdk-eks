@@ -4,7 +4,7 @@ import * as path from 'path';
 import { PolicyStatement, Effect, ManagedPolicy } from '@aws-cdk/aws-iam';
 import { Construct } from '@aws-cdk/core';
 
-import { BaseStack } from '../base-stack';
+import { BaseStack } from '../BaseStack';
 
 /**
  * IAM Policy statetment.

@@ -11,7 +11,7 @@ import {
 import { Cluster } from '@aws-cdk/aws-eks';
 import { AutoScalingGroup } from '@aws-cdk/aws-autoscaling';
 
-import { BaseStack } from './base-stack';
+import { BaseStack } from './BaseStack';
 import { loadManifestYaml, loadManifestYamlAll } from './utils/manifest_reader';
 
 import { appDomain } from './config';
@@ -20,7 +20,7 @@ import PolicyStack from './policies/PolicyStack';
 /**
  * Create EKS cluster with kubernetes resources related with AWS resources
  */
-export class EksCdkStack extends BaseStack {
+export class EksStack extends BaseStack {
   public readonly cluster: Cluster;
 
   constructor(scope: Construct, id: string, props: { vpc: Vpc }) {

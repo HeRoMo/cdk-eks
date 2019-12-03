@@ -11,7 +11,6 @@ import {
 import { Cluster } from '@aws-cdk/aws-eks';
 import { AutoScalingGroup } from '@aws-cdk/aws-autoscaling';
 
-import ClusterAutoScalerPolicyStack from './policies/ClusterAutoScalerPolicyStack';
 import ExternalDNSPolicyStack from './policies/ExternalDNSPolicyStack';
 
 import { BaseStack } from './base-stack';
@@ -93,7 +92,7 @@ export class EksCdkStack extends BaseStack {
   private appendClusterAutoscaler(autoScalingGroup: AutoScalingGroup): void {
     Tag.add(autoScalingGroup, 'k8s.io/cluster-autoscaler/enabled', 'owned');
     Tag.add(autoScalingGroup, `k8s.io/cluster-autoscaler/${this.cluster.clusterName}`, 'true');
-    const stack = new ClusterAutoScalerPolicyStack(this, 'ClusterAutoScalerPolicyStack');
+    const stack = new PolicyStack(this, 'ClusterAutoScaler', 'cluster-autoscaler.json');
     autoScalingGroup.role.addManagedPolicy(stack.policy);
 
     const fileName = 'kubernetes-manifests/cluster-autoscaler/cluster-autoscaler-autodiscover.yaml';

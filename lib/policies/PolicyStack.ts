@@ -29,8 +29,8 @@ function isStatementObjects(objects: object): objects is StatementObject {
 export default class PolicyStack extends BaseStack {
   public readonly policy: ManagedPolicy;
 
-  constructor(scope: Construct, id: string, policyName: string, statementJson: string) {
-    super(scope, id);
+  constructor(scope: Construct, policyName: string, statementJson: string) {
+    super(scope, `${policyName}PolicyStack`);
 
     const filePath = path.join(__dirname, 'statements', statementJson);
     const statements = PolicyStack.loadStatementsJson(filePath);

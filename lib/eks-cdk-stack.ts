@@ -11,7 +11,6 @@ import {
 import { Cluster } from '@aws-cdk/aws-eks';
 import { AutoScalingGroup } from '@aws-cdk/aws-autoscaling';
 
-import ALBIngressControllerIAMPolicyStack from './policies/ALBIngressControllerIAMPolicyStack';
 import ClusterAutoScalerPolicyStack from './policies/ClusterAutoScalerPolicyStack';
 import ExternalDNSPolicyStack from './policies/ExternalDNSPolicyStack';
 
@@ -67,7 +66,7 @@ export class EksCdkStack extends BaseStack {
       subnet.node.applyAspect(new Tag('kubernetes.io/role/internal-elb', '1', { includeResourceTypes: ['AWS::EC2::Subnet'] }));
     });
 
-    const stack = new ALBIngressControllerIAMPolicyStack(this, 'ALBIngressControllerIAMPolicyStack');
+    const stack = new PolicyStack(this, 'ALBIngressControllerIAM', 'alb-ingress-controller.json');
     clusterNodeRole.addManagedPolicy(stack.policy);
 
     const rbacRoleManifests = loadManifestYaml('kubernetes-manifests/alb-ingress-controller/rbac-role.yaml');
@@ -115,7 +114,7 @@ export class EksCdkStack extends BaseStack {
    * @param clusterNodeRole
    */
   private appendEbsCsiDriver(clusterNodeRole: IRole): void {
-    const stack = new PolicyStack(this, 'EbsCsiDriverStack', 'Amazon_EBS_CSI_Driver', 'ebs-csi-driver.json');
+    const stack = new PolicyStack(this, 'AmazonEBSCSIDriver', 'ebs-csi-driver.json');
     clusterNodeRole.addManagedPolicy(stack.policy);
     const ebsCsiSriverManifests = loadManifestYaml(path.join(
       __dirname,

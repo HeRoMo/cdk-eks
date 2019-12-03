@@ -1194,7 +1194,7 @@ Object {
             "Fn::ImportValue": "MyTestEksCdkStackClusterAutoScalerPolicyStackF5758AA0:ClusterAutoScalerPolicyStackExportsOutputRefClusterAutoScalerPolicy5B49D9A7B7DAE9E7",
           },
           Object {
-            "Fn::ImportValue": "MyTestEksCdkStackEbsCsiDriverStack54DAEE8E:EbsCsiDriverStackExportsOutputRefAmazonEBSCSIDriverPolicyB8F336DF979F95E1",
+            "Fn::ImportValue": "MyTestEksCdkStackAmazonEBSCSIDriverPolicyStack1D04E340:AmazonEBSCSIDriverPolicyStackExportsOutputRefAmazonEBSCSIDriverPolicyC083190480D674F9",
           },
           Object {
             "Fn::ImportValue": "MyTestEksCdkStackExternalDNSPolicyStack46479C83:ExternalDNSPolicyStackExportsOutputRefExternalDNSPolicyF0AE30E4117D2412",

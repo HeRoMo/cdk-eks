@@ -1,7 +1,7 @@
 import { Construct } from '@aws-cdk/core';
 import { Vpc, SubnetType } from '@aws-cdk/aws-ec2';
 
-import { BaseStack } from './base-stack';
+import { BaseStack } from './BaseStack';
 
 export class VpcStack extends BaseStack {
   public readonly vpc: Vpc;

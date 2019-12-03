@@ -4,7 +4,7 @@ import * as path from 'path';
 import { PolicyStatement, Effect, ManagedPolicy } from '@aws-cdk/aws-iam';
 import { Construct } from '@aws-cdk/core';
 
-import { BaseStack } from '../base-stack';
+import { BaseStack } from '../BaseStack';
 
 /**
  * IAM Policy statetment.
@@ -29,8 +29,8 @@ function isStatementObjects(objects: object): objects is StatementObject {
 export default class PolicyStack extends BaseStack {
   public readonly policy: ManagedPolicy;
 
-  constructor(scope: Construct, id: string, policyName: string, statementJson: string) {
-    super(scope, id);
+  constructor(scope: Construct, policyName: string, statementJson: string) {
+    super(scope, `${policyName}PolicyStack`);
 
     const filePath = path.join(__dirname, 'statements', statementJson);
     const statements = PolicyStack.loadStatementsJson(filePath);

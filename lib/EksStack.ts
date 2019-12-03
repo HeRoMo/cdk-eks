@@ -11,23 +11,22 @@ import {
 import { Cluster } from '@aws-cdk/aws-eks';
 import { AutoScalingGroup } from '@aws-cdk/aws-autoscaling';
 
-import ALBIngressControllerIAMPolicyStack from './policies/ALBIngressControllerIAMPolicyStack';
-import ClusterAutoScalerPolicyStack from './policies/ClusterAutoScalerPolicyStack';
-import ExternalDNSPolicyStack from './policies/ExternalDNSPolicyStack';
-
-import { BaseStack } from './base-stack';
+import { BaseStack } from './BaseStack';
 import { loadManifestYaml, loadManifestYamlAll } from './utils/manifest_reader';
 
 import { appDomain } from './config';
 import PolicyStack from './policies/PolicyStack';
 
-export class EksCdkStack extends BaseStack {
+/**
+ * Create EKS cluster with kubernetes resources related with AWS resources
+ */
+export class EksStack extends BaseStack {
   public readonly cluster: Cluster;
 
   constructor(scope: Construct, id: string, props: { vpc: Vpc }) {
     super(scope, id);
 
-    // EKS用のIAM Role
+    // IAM Role for EKS
     const eksRole = new Role(this, 'EksRole', {
       roleName: 'MyEKSRole',
       assumedBy: new AccountRootPrincipal(),
@@ -48,6 +47,7 @@ export class EksCdkStack extends BaseStack {
       instanceType: new InstanceType('t3.small'),
     });
 
+    // Create kubernetes resources
     this.appendAlbIngressController(autoScalingGroup.role);
     this.appendClusterAutoscaler(autoScalingGroup);
     this.appendEbsCsiDriver(autoScalingGroup.role);
@@ -67,7 +67,7 @@ export class EksCdkStack extends BaseStack {
       subnet.node.applyAspect(new Tag('kubernetes.io/role/internal-elb', '1', { includeResourceTypes: ['AWS::EC2::Subnet'] }));
     });
 
-    const stack = new ALBIngressControllerIAMPolicyStack(this, 'ALBIngressControllerIAMPolicyStack');
+    const stack = new PolicyStack(this, 'ALBIngressControllerIAM', 'alb-ingress-controller.json');
     clusterNodeRole.addManagedPolicy(stack.policy);
 
     const rbacRoleManifests = loadManifestYaml('kubernetes-manifests/alb-ingress-controller/rbac-role.yaml');
@@ -94,7 +94,7 @@ export class EksCdkStack extends BaseStack {
   private appendClusterAutoscaler(autoScalingGroup: AutoScalingGroup): void {
     Tag.add(autoScalingGroup, 'k8s.io/cluster-autoscaler/enabled', 'owned');
     Tag.add(autoScalingGroup, `k8s.io/cluster-autoscaler/${this.cluster.clusterName}`, 'true');
-    const stack = new ClusterAutoScalerPolicyStack(this, 'ClusterAutoScalerPolicyStack');
+    const stack = new PolicyStack(this, 'ClusterAutoScaler', 'cluster-autoscaler.json');
     autoScalingGroup.role.addManagedPolicy(stack.policy);
 
     const fileName = 'kubernetes-manifests/cluster-autoscaler/cluster-autoscaler-autodiscover.yaml';
@@ -115,7 +115,7 @@ export class EksCdkStack extends BaseStack {
    * @param clusterNodeRole
    */
   private appendEbsCsiDriver(clusterNodeRole: IRole): void {
-    const stack = new PolicyStack(this, 'EbsCsiDriverStack', 'Amazon_EBS_CSI_Driver', 'ebs-csi-driver.json');
+    const stack = new PolicyStack(this, 'AmazonEBSCSIDriver', 'ebs-csi-driver.json');
     clusterNodeRole.addManagedPolicy(stack.policy);
     const ebsCsiSriverManifests = loadManifestYaml(path.join(
       __dirname,
@@ -132,7 +132,7 @@ export class EksCdkStack extends BaseStack {
    * @param clusterNodeRole
    */
   private appendExternalDns(clusterNodeRole: IRole): void {
-    const stack = new ExternalDNSPolicyStack(this, 'ExternalDNSPolicyStack');
+    const stack = new PolicyStack(this, 'ExternalDNS', 'external-dns.json');
     clusterNodeRole.addManagedPolicy(stack.policy);
     const externalDnsManifests = loadManifestYaml('kubernetes-manifests/exterrnal-dns/external-dns.yaml');
 

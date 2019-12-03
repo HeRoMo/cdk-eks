@@ -11,8 +11,6 @@ import {
 import { Cluster } from '@aws-cdk/aws-eks';
 import { AutoScalingGroup } from '@aws-cdk/aws-autoscaling';
 
-import ExternalDNSPolicyStack from './policies/ExternalDNSPolicyStack';
-
 import { BaseStack } from './base-stack';
 import { loadManifestYaml, loadManifestYamlAll } from './utils/manifest_reader';
 
@@ -130,7 +128,7 @@ export class EksCdkStack extends BaseStack {
    * @param clusterNodeRole
    */
   private appendExternalDns(clusterNodeRole: IRole): void {
-    const stack = new ExternalDNSPolicyStack(this, 'ExternalDNSPolicyStack');
+    const stack = new PolicyStack(this, 'ExternalDNS', 'external-dns.json');
     clusterNodeRole.addManagedPolicy(stack.policy);
     const externalDnsManifests = loadManifestYaml('kubernetes-manifests/exterrnal-dns/external-dns.yaml');
 

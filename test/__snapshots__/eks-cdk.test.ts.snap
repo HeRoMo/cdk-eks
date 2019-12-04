@@ -131,7 +131,7 @@ Object {
     "EksVpcPrivateSubnet1SubnetDC5B4B59": Object {
       "Properties": Object {
         "AvailabilityZone": "dummy1a",
-        "CidrBlock": "10.0.3.0/24",
+        "CidrBlock": "10.0.48.0/20",
         "MapPublicIpOnLaunch": false,
         "Tags": Array [
           Object {
@@ -201,7 +201,7 @@ Object {
     "EksVpcPrivateSubnet2SubnetAED55795": Object {
       "Properties": Object {
         "AvailabilityZone": "dummy1b",
-        "CidrBlock": "10.0.4.0/24",
+        "CidrBlock": "10.0.64.0/20",
         "MapPublicIpOnLaunch": false,
         "Tags": Array [
           Object {
@@ -271,7 +271,7 @@ Object {
     "EksVpcPrivateSubnet3Subnet012DCC55": Object {
       "Properties": Object {
         "AvailabilityZone": "dummy1c",
-        "CidrBlock": "10.0.5.0/24",
+        "CidrBlock": "10.0.80.0/20",
         "MapPublicIpOnLaunch": false,
         "Tags": Array [
           Object {
@@ -366,7 +366,7 @@ Object {
     "EksVpcPublicSubnet1SubnetD58F89DF": Object {
       "Properties": Object {
         "AvailabilityZone": "dummy1a",
-        "CidrBlock": "10.0.0.0/24",
+        "CidrBlock": "10.0.0.0/20",
         "MapPublicIpOnLaunch": true,
         "Tags": Array [
           Object {
@@ -435,7 +435,7 @@ Object {
     "EksVpcPublicSubnet2Subnet756C2CF7": Object {
       "Properties": Object {
         "AvailabilityZone": "dummy1b",
-        "CidrBlock": "10.0.1.0/24",
+        "CidrBlock": "10.0.16.0/20",
         "MapPublicIpOnLaunch": true,
         "Tags": Array [
           Object {
@@ -504,7 +504,7 @@ Object {
     "EksVpcPublicSubnet3Subnet8906CA88": Object {
       "Properties": Object {
         "AvailabilityZone": "dummy1c",
-        "CidrBlock": "10.0.2.0/24",
+        "CidrBlock": "10.0.32.0/20",
         "MapPublicIpOnLaunch": true,
         "Tags": Array [
           Object {

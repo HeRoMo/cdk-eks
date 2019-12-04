@@ -14,7 +14,7 @@ import { AutoScalingGroup } from '@aws-cdk/aws-autoscaling';
 import { BaseStack } from './BaseStack';
 import { loadManifestYaml, loadManifestYamlAll } from './utils/manifest_reader';
 
-import { appDomain } from './config';
+import { appDomain, region } from './config';
 import PolicyStack from './policies/PolicyStack';
 
 /**
@@ -79,7 +79,7 @@ export class EksStack extends BaseStack {
       const { args } = albIngressControllerManifests.spec.template.spec.containers[0];
       args.push(`--cluster-name=${this.cluster.clusterName}`);
       args.push(`--aws-vpc-id=${this.cluster.vpc.vpcId}`);
-      args.push(`--aws-region=${process.env.CDK_INTEG_REGION}`);
+      args.push(`--aws-region=${region}`);
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error({ error });

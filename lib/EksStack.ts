@@ -14,7 +14,7 @@ import { AutoScalingGroup } from '@aws-cdk/aws-autoscaling';
 import { BaseStack } from './BaseStack';
 import { loadManifestYaml, loadManifestYamlAll } from './utils/manifest_reader';
 
-import { appDomain } from './config';
+import { appDomain, region } from './config';
 import PolicyStack from './policies/PolicyStack';
 
 /**
@@ -72,13 +72,14 @@ export class EksStack extends BaseStack {
 
     const rbacRoleManifests = loadManifestYaml('kubernetes-manifests/alb-ingress-controller/rbac-role.yaml');
     this.cluster.addResource('rbac-role', ...rbacRoleManifests);
-    const [albIngressControllerManifests] = loadManifestYaml('kubernetes-manifests/alb-ingress-controller/alb-ingress-controller.yaml');
+    const filename = path.join(__dirname, '..', 'kubernetes-manifests', 'alb-ingress-controller', 'alb-ingress-controller.yaml');
+    const [albIngressControllerManifests] = loadManifestYaml(filename);
 
     try {
       const { args } = albIngressControllerManifests.spec.template.spec.containers[0];
       args.push(`--cluster-name=${this.cluster.clusterName}`);
       args.push(`--aws-vpc-id=${this.cluster.vpc.vpcId}`);
-      args.push(`--aws-region=${process.env.CDK_INTEG_REGION}`);
+      args.push(`--aws-region=${region}`);
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error({ error });
@@ -97,7 +98,7 @@ export class EksStack extends BaseStack {
     const stack = new PolicyStack(this, 'ClusterAutoScaler', 'cluster-autoscaler.json');
     autoScalingGroup.role.addManagedPolicy(stack.policy);
 
-    const fileName = 'kubernetes-manifests/cluster-autoscaler/cluster-autoscaler-autodiscover.yaml';
+    const fileName = path.join(__dirname, '..', 'kubernetes-manifests', 'cluster-autoscaler', 'cluster-autoscaler-autodiscover.yaml');
     const manifests = loadManifestYaml(fileName);
     const deployment = manifests.find((manifest) => manifest.kind === 'Deployment');
     const { command } = deployment.spec.template.spec.containers[0];
@@ -117,13 +118,8 @@ export class EksStack extends BaseStack {
   private appendEbsCsiDriver(clusterNodeRole: IRole): void {
     const stack = new PolicyStack(this, 'AmazonEBSCSIDriver', 'ebs-csi-driver.json');
     clusterNodeRole.addManagedPolicy(stack.policy);
-    const ebsCsiSriverManifests = loadManifestYaml(path.join(
-      __dirname,
-      '..',
-      'kubernetes-manifests',
-      'ebs-csi-driver',
-      'ebs-csi-driver.yaml',
-    ));
+    const filename = path.join(__dirname, '..', 'kubernetes-manifests', 'ebs-csi-driver', 'ebs-csi-driver.yaml');
+    const ebsCsiSriverManifests = loadManifestYaml(filename);
     this.cluster.addResource('ebs-csi-driver', ...ebsCsiSriverManifests);
   }
 

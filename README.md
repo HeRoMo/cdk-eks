@@ -8,6 +8,7 @@ This CDK project create EKS cluster with the following kubernetes resouces
 - [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler/cloudprovider/aws)
 - [AWS ALB Ingress Controller](https://github.com//kubernetes-sigs/aws-alb-ingress-controller)
 - [External DNS](https://kubernetes-sigs.github.io/aws-alb-ingress-controller/guide/external-dns/setup/)
+- [Amazon EBS CSI Driver](https://docs.aws.amazon.com/ja_jp/eks/latest/userguide/ebs-csi.html)
 
 Ready for auto scaling pods and worker-nodes.
 Ready for publish your application via AWS ALB.

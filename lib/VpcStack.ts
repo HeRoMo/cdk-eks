@@ -15,12 +15,12 @@ export class VpcStack extends BaseStack {
       natGateways: 1,
       subnetConfiguration: [
         {
-          cidrMask: 24,
+          cidrMask: 20,
           name: 'Public',
           subnetType: SubnetType.PUBLIC,
         },
         {
-          cidrMask: 24,
+          cidrMask: 20,
           name: 'Private',
           subnetType: SubnetType.PRIVATE,
         },

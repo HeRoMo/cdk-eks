@@ -315,6 +315,16 @@ Object {
     "EksVpcPublicSubnet1EIP34F968E2": Object {
       "Properties": Object {
         "Domain": "vpc",
+        "Tags": Array [
+          Object {
+            "Key": "Name",
+            "Value": "MyTestVpcStack/EksVpc/PublicSubnet1",
+          },
+          Object {
+            "Key": "kubernetes.io/role/elb",
+            "Value": "1",
+          },
+        ],
       },
       "Type": "AWS::EC2::EIP",
     },
@@ -334,6 +344,10 @@ Object {
             "Key": "Name",
             "Value": "MyTestVpcStack/EksVpc/PublicSubnet1",
           },
+          Object {
+            "Key": "kubernetes.io/role/elb",
+            "Value": "1",
+          },
         ],
       },
       "Type": "AWS::EC2::NatGateway",
@@ -344,6 +358,10 @@ Object {
           Object {
             "Key": "Name",
             "Value": "MyTestVpcStack/EksVpc/PublicSubnet1",
+          },
+          Object {
+            "Key": "kubernetes.io/role/elb",
+            "Value": "1",
           },
         ],
         "VpcId": Object {
@@ -414,6 +432,10 @@ Object {
             "Key": "Name",
             "Value": "MyTestVpcStack/EksVpc/PublicSubnet2",
           },
+          Object {
+            "Key": "kubernetes.io/role/elb",
+            "Value": "1",
+          },
         ],
         "VpcId": Object {
           "Ref": "EksVpc4BB427FA",
@@ -482,6 +504,10 @@ Object {
           Object {
             "Key": "Name",
             "Value": "MyTestVpcStack/EksVpc/PublicSubnet3",
+          },
+          Object {
+            "Key": "kubernetes.io/role/elb",
+            "Value": "1",
           },
         ],
         "VpcId": Object {
@@ -590,28 +616,64 @@ Object {
     },
   },
   "Parameters": Object {
-    "AssetParameters640847533c8a00b3133aeb128edcac41fb7b60349c9e18764fcf7ea4af14d444ArtifactHash606C8127": Object {
-      "Description": "Artifact hash for asset \\"640847533c8a00b3133aeb128edcac41fb7b60349c9e18764fcf7ea4af14d444\\"",
+    "AssetParameters0004c128dffc6609d53bf9ca8d7d6a83efe9b2ed05ca4e9ed5642fa034057774ArtifactHash0AEC8AC6": Object {
+      "Description": "Artifact hash for asset \\"0004c128dffc6609d53bf9ca8d7d6a83efe9b2ed05ca4e9ed5642fa034057774\\"",
       "Type": "String",
     },
-    "AssetParameters640847533c8a00b3133aeb128edcac41fb7b60349c9e18764fcf7ea4af14d444S3Bucket919126CB": Object {
-      "Description": "S3 bucket for asset \\"640847533c8a00b3133aeb128edcac41fb7b60349c9e18764fcf7ea4af14d444\\"",
+    "AssetParameters0004c128dffc6609d53bf9ca8d7d6a83efe9b2ed05ca4e9ed5642fa034057774S3Bucket68EDA20F": Object {
+      "Description": "S3 bucket for asset \\"0004c128dffc6609d53bf9ca8d7d6a83efe9b2ed05ca4e9ed5642fa034057774\\"",
       "Type": "String",
     },
-    "AssetParameters640847533c8a00b3133aeb128edcac41fb7b60349c9e18764fcf7ea4af14d444S3VersionKey529BEF54": Object {
-      "Description": "S3 key for asset version \\"640847533c8a00b3133aeb128edcac41fb7b60349c9e18764fcf7ea4af14d444\\"",
+    "AssetParameters0004c128dffc6609d53bf9ca8d7d6a83efe9b2ed05ca4e9ed5642fa034057774S3VersionKey4E0E7FA0": Object {
+      "Description": "S3 key for asset version \\"0004c128dffc6609d53bf9ca8d7d6a83efe9b2ed05ca4e9ed5642fa034057774\\"",
       "Type": "String",
     },
-    "AssetParametersea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204ArtifactHashB80B497F": Object {
-      "Description": "Artifact hash for asset \\"ea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204\\"",
+    "AssetParameters45409259941c07ed6e38de6ebc87bd1b80ab171c17b6dead66924a369191f162ArtifactHash1162BB73": Object {
+      "Description": "Artifact hash for asset \\"45409259941c07ed6e38de6ebc87bd1b80ab171c17b6dead66924a369191f162\\"",
       "Type": "String",
     },
-    "AssetParametersea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204S3Bucket371D99F8": Object {
-      "Description": "S3 bucket for asset \\"ea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204\\"",
+    "AssetParameters45409259941c07ed6e38de6ebc87bd1b80ab171c17b6dead66924a369191f162S3Bucket9F277161": Object {
+      "Description": "S3 bucket for asset \\"45409259941c07ed6e38de6ebc87bd1b80ab171c17b6dead66924a369191f162\\"",
       "Type": "String",
     },
-    "AssetParametersea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204S3VersionKeyFDCB25DD": Object {
-      "Description": "S3 key for asset version \\"ea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204\\"",
+    "AssetParameters45409259941c07ed6e38de6ebc87bd1b80ab171c17b6dead66924a369191f162S3VersionKey134BAB9F": Object {
+      "Description": "S3 key for asset version \\"45409259941c07ed6e38de6ebc87bd1b80ab171c17b6dead66924a369191f162\\"",
+      "Type": "String",
+    },
+    "AssetParameters7616e163d343e43b465b090c75be296e87bb8f32fe89bc19e4e785a511446903ArtifactHash4DB254A6": Object {
+      "Description": "Artifact hash for asset \\"7616e163d343e43b465b090c75be296e87bb8f32fe89bc19e4e785a511446903\\"",
+      "Type": "String",
+    },
+    "AssetParameters7616e163d343e43b465b090c75be296e87bb8f32fe89bc19e4e785a511446903S3BucketEFE859CA": Object {
+      "Description": "S3 bucket for asset \\"7616e163d343e43b465b090c75be296e87bb8f32fe89bc19e4e785a511446903\\"",
+      "Type": "String",
+    },
+    "AssetParameters7616e163d343e43b465b090c75be296e87bb8f32fe89bc19e4e785a511446903S3VersionKey9C0A7850": Object {
+      "Description": "S3 key for asset version \\"7616e163d343e43b465b090c75be296e87bb8f32fe89bc19e4e785a511446903\\"",
+      "Type": "String",
+    },
+    "AssetParameterseb7b393e25ba8e85d958075eb10684e0359212fa41426b2a2d68ea0208677bdaArtifactHash780CF8E5": Object {
+      "Description": "Artifact hash for asset \\"eb7b393e25ba8e85d958075eb10684e0359212fa41426b2a2d68ea0208677bda\\"",
+      "Type": "String",
+    },
+    "AssetParameterseb7b393e25ba8e85d958075eb10684e0359212fa41426b2a2d68ea0208677bdaS3BucketE1B1D219": Object {
+      "Description": "S3 bucket for asset \\"eb7b393e25ba8e85d958075eb10684e0359212fa41426b2a2d68ea0208677bda\\"",
+      "Type": "String",
+    },
+    "AssetParameterseb7b393e25ba8e85d958075eb10684e0359212fa41426b2a2d68ea0208677bdaS3VersionKey2E1F0498": Object {
+      "Description": "S3 key for asset version \\"eb7b393e25ba8e85d958075eb10684e0359212fa41426b2a2d68ea0208677bda\\"",
+      "Type": "String",
+    },
+    "AssetParametersf587c683163dea7b70b883fe8f803ffe0622a40e05b3766e08ffa9ed25caabc9ArtifactHash72EE40C1": Object {
+      "Description": "Artifact hash for asset \\"f587c683163dea7b70b883fe8f803ffe0622a40e05b3766e08ffa9ed25caabc9\\"",
+      "Type": "String",
+    },
+    "AssetParametersf587c683163dea7b70b883fe8f803ffe0622a40e05b3766e08ffa9ed25caabc9S3Bucket6B4B2C9B": Object {
+      "Description": "S3 bucket for asset \\"f587c683163dea7b70b883fe8f803ffe0622a40e05b3766e08ffa9ed25caabc9\\"",
+      "Type": "String",
+    },
+    "AssetParametersf587c683163dea7b70b883fe8f803ffe0622a40e05b3766e08ffa9ed25caabc9S3VersionKey8971BB19": Object {
+      "Description": "S3 key for asset version \\"f587c683163dea7b70b883fe8f803ffe0622a40e05b3766e08ffa9ed25caabc9\\"",
       "Type": "String",
     },
     "SsmParameterValueawsserviceeksoptimizedami114amazonlinux2recommendedimageidC96584B6F00A464EAD1953AFF4B05118Parameter": Object {
@@ -675,14 +737,146 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
+    "awscdkawseksClusterResourceProviderNestedStackawscdkawseksClusterResourceProviderNestedStackResource9827C454": Object {
+      "Properties": Object {
+        "Parameters": Object {
+          "referencetoMyTestEksCdkStackAssetParameters7616e163d343e43b465b090c75be296e87bb8f32fe89bc19e4e785a511446903S3Bucket0FE2F0C1Ref": Object {
+            "Ref": "AssetParameters7616e163d343e43b465b090c75be296e87bb8f32fe89bc19e4e785a511446903S3BucketEFE859CA",
+          },
+          "referencetoMyTestEksCdkStackAssetParameters7616e163d343e43b465b090c75be296e87bb8f32fe89bc19e4e785a511446903S3VersionKey0EC72911Ref": Object {
+            "Ref": "AssetParameters7616e163d343e43b465b090c75be296e87bb8f32fe89bc19e4e785a511446903S3VersionKey9C0A7850",
+          },
+          "referencetoMyTestEksCdkStackAssetParametersf587c683163dea7b70b883fe8f803ffe0622a40e05b3766e08ffa9ed25caabc9S3Bucket26C2C242Ref": Object {
+            "Ref": "AssetParametersf587c683163dea7b70b883fe8f803ffe0622a40e05b3766e08ffa9ed25caabc9S3Bucket6B4B2C9B",
+          },
+          "referencetoMyTestEksCdkStackAssetParametersf587c683163dea7b70b883fe8f803ffe0622a40e05b3766e08ffa9ed25caabc9S3VersionKeyF47262C9Ref": Object {
+            "Ref": "AssetParametersf587c683163dea7b70b883fe8f803ffe0622a40e05b3766e08ffa9ed25caabc9S3VersionKey8971BB19",
+          },
+        },
+        "TemplateURL": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "https://s3.ap-northeast-1.",
+              Object {
+                "Ref": "AWS::URLSuffix",
+              },
+              "/",
+              Object {
+                "Ref": "AssetParameterseb7b393e25ba8e85d958075eb10684e0359212fa41426b2a2d68ea0208677bdaS3BucketE1B1D219",
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  0,
+                  Object {
+                    "Fn::Split": Array [
+                      "||",
+                      Object {
+                        "Ref": "AssetParameterseb7b393e25ba8e85d958075eb10684e0359212fa41426b2a2d68ea0208677bdaS3VersionKey2E1F0498",
+                      },
+                    ],
+                  },
+                ],
+              },
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "||",
+                      Object {
+                        "Ref": "AssetParameterseb7b393e25ba8e85d958075eb10684e0359212fa41426b2a2d68ea0208677bdaS3VersionKey2E1F0498",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudFormation::Stack",
+    },
+    "awscdkawseksKubectlProviderNestedStackawscdkawseksKubectlProviderNestedStackResourceA7AEBA6B": Object {
+      "Properties": Object {
+        "Parameters": Object {
+          "referencetoMyTestEksCdkStackAssetParameters0004c128dffc6609d53bf9ca8d7d6a83efe9b2ed05ca4e9ed5642fa034057774S3Bucket82622072Ref": Object {
+            "Ref": "AssetParameters0004c128dffc6609d53bf9ca8d7d6a83efe9b2ed05ca4e9ed5642fa034057774S3Bucket68EDA20F",
+          },
+          "referencetoMyTestEksCdkStackAssetParameters0004c128dffc6609d53bf9ca8d7d6a83efe9b2ed05ca4e9ed5642fa034057774S3VersionKeyCD3BE84BRef": Object {
+            "Ref": "AssetParameters0004c128dffc6609d53bf9ca8d7d6a83efe9b2ed05ca4e9ed5642fa034057774S3VersionKey4E0E7FA0",
+          },
+          "referencetoMyTestEksCdkStackAssetParametersf587c683163dea7b70b883fe8f803ffe0622a40e05b3766e08ffa9ed25caabc9S3Bucket26C2C242Ref": Object {
+            "Ref": "AssetParametersf587c683163dea7b70b883fe8f803ffe0622a40e05b3766e08ffa9ed25caabc9S3Bucket6B4B2C9B",
+          },
+          "referencetoMyTestEksCdkStackAssetParametersf587c683163dea7b70b883fe8f803ffe0622a40e05b3766e08ffa9ed25caabc9S3VersionKeyF47262C9Ref": Object {
+            "Ref": "AssetParametersf587c683163dea7b70b883fe8f803ffe0622a40e05b3766e08ffa9ed25caabc9S3VersionKey8971BB19",
+          },
+        },
+        "TemplateURL": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "https://s3.ap-northeast-1.",
+              Object {
+                "Ref": "AWS::URLSuffix",
+              },
+              "/",
+              Object {
+                "Ref": "AssetParameters45409259941c07ed6e38de6ebc87bd1b80ab171c17b6dead66924a369191f162S3Bucket9F277161",
+              },
+              "/",
+              Object {
+                "Fn::Select": Array [
+                  0,
+                  Object {
+                    "Fn::Split": Array [
+                      "||",
+                      Object {
+                        "Ref": "AssetParameters45409259941c07ed6e38de6ebc87bd1b80ab171c17b6dead66924a369191f162S3VersionKey134BAB9F",
+                      },
+                    ],
+                  },
+                ],
+              },
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "||",
+                      Object {
+                        "Ref": "AssetParameters45409259941c07ed6e38de6ebc87bd1b80ab171c17b6dead66924a369191f162S3VersionKey134BAB9F",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::CloudFormation::Stack",
+    },
     "clusterAwsAuthmanifestB57F2A94": Object {
       "DeletionPolicy": "Delete",
       "Properties": Object {
+        "ClusterName": Object {
+          "Ref": "clusterC5B25D0D",
+        },
         "Manifest": Object {
           "Fn::Join": Array [
             "",
             Array [
               "[{\\"apiVersion\\":\\"v1\\",\\"kind\\":\\"ConfigMap\\",\\"metadata\\":{\\"name\\":\\"aws-auth\\",\\"namespace\\":\\"kube-system\\"},\\"data\\":{\\"mapRoles\\":\\"[{\\\\\\"rolearn\\\\\\":\\\\\\"",
+              Object {
+                "Fn::GetAtt": Array [
+                  "EksRole7A4BFDF2",
+                  "Arn",
+                ],
+              },
+              "\\\\\\",\\\\\\"username\\\\\\":\\\\\\"",
               Object {
                 "Fn::GetAtt": Array [
                   "EksRole7A4BFDF2",
@@ -700,10 +894,16 @@ Object {
             ],
           ],
         },
+        "RoleArn": Object {
+          "Fn::GetAtt": Array [
+            "clusterCreationRole2B3B5002",
+            "Arn",
+          ],
+        },
         "ServiceToken": Object {
           "Fn::GetAtt": Array [
-            "clusterKubernetesResourceHandlerC33DE9FA",
-            "Arn",
+            "awscdkawseksKubectlProviderNestedStackawscdkawseksKubectlProviderNestedStackResourceA7AEBA6B",
+            "Outputs.MyTestEksCdkStackawscdkawseksKubectlProviderframeworkonEvent5A89646AArn",
           ],
         },
       },
@@ -712,7 +912,17 @@ Object {
     },
     "clusterC5B25D0D": Object {
       "DeletionPolicy": "Delete",
+      "DependsOn": Array [
+        "clusterCreationRoleDefaultPolicy69503D2C",
+        "clusterCreationRole2B3B5002",
+      ],
       "Properties": Object {
+        "AssumeRoleArn": Object {
+          "Fn::GetAtt": Array [
+            "clusterCreationRole2B3B5002",
+            "Arn",
+          ],
+        },
         "Config": Object {
           "name": "MyEKSCluster",
           "resourcesVpcConfig": Object {
@@ -747,63 +957,20 @@ Object {
           },
           "roleArn": Object {
             "Fn::GetAtt": Array [
-              "clusterClusterRoleB36A1543",
+              "clusterRole88D0C969",
               "Arn",
             ],
           },
         },
         "ServiceToken": Object {
           "Fn::GetAtt": Array [
-            "clusterResourceHandlerA2400902",
-            "Arn",
+            "awscdkawseksClusterResourceProviderNestedStackawscdkawseksClusterResourceProviderNestedStackResource9827C454",
+            "Outputs.MyTestEksCdkStackawscdkawseksClusterResourceProviderframeworkonEventA6DBB36AArn",
           ],
         },
       },
       "Type": "Custom::AWSCDK-EKS-Cluster",
       "UpdateReplacePolicy": "Delete",
-    },
-    "clusterClusterRoleB36A1543": Object {
-      "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": Object {
-                "Service": "eks.amazonaws.com",
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "ManagedPolicyArns": Array [
-          Object {
-            "Fn::Join": Array [
-              "",
-              Array [
-                "arn:",
-                Object {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/AmazonEKSClusterPolicy",
-              ],
-            ],
-          },
-          Object {
-            "Fn::Join": Array [
-              "",
-              Array [
-                "arn:",
-                Object {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/AmazonEKSServicePolicy",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
     },
     "clusterControlPlaneSecurityGroup7F1D5AB2": Object {
       "Properties": Object {
@@ -842,180 +1009,7 @@ Object {
       },
       "Type": "AWS::EC2::SecurityGroupIngress",
     },
-    "clusterKubernetesResourceHandlerC33DE9FA": Object {
-      "DependsOn": Array [
-        "clusterResourceHandlerServiceRoleDefaultPolicy4E8198ED",
-        "clusterResourceHandlerServiceRoleEA359C5A",
-      ],
-      "Properties": Object {
-        "Code": Object {
-          "S3Bucket": Object {
-            "Ref": "AssetParameters640847533c8a00b3133aeb128edcac41fb7b60349c9e18764fcf7ea4af14d444S3Bucket919126CB",
-          },
-          "S3Key": Object {
-            "Fn::Join": Array [
-              "",
-              Array [
-                Object {
-                  "Fn::Select": Array [
-                    0,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParameters640847533c8a00b3133aeb128edcac41fb7b60349c9e18764fcf7ea4af14d444S3VersionKey529BEF54",
-                        },
-                      ],
-                    },
-                  ],
-                },
-                Object {
-                  "Fn::Select": Array [
-                    1,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParameters640847533c8a00b3133aeb128edcac41fb7b60349c9e18764fcf7ea4af14d444S3VersionKey529BEF54",
-                        },
-                      ],
-                    },
-                  ],
-                },
-              ],
-            ],
-          },
-        },
-        "Environment": Object {
-          "Variables": Object {
-            "CLUSTER_NAME": Object {
-              "Ref": "clusterC5B25D0D",
-            },
-          },
-        },
-        "Handler": "index.handler",
-        "Layers": Array [
-          Object {
-            "Fn::GetAtt": Array [
-              "kubectllayer8C2542BCBF2B4DFEB765E181FD30A9A0617C4ADA",
-              "Outputs.LayerVersionArn",
-            ],
-          },
-        ],
-        "MemorySize": 256,
-        "Role": Object {
-          "Fn::GetAtt": Array [
-            "clusterResourceHandlerServiceRoleEA359C5A",
-            "Arn",
-          ],
-        },
-        "Runtime": "python3.7",
-        "Timeout": 900,
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "clusterResourceHandlerA2400902": Object {
-      "DependsOn": Array [
-        "clusterResourceHandlerServiceRoleDefaultPolicy4E8198ED",
-        "clusterResourceHandlerServiceRoleEA359C5A",
-      ],
-      "Properties": Object {
-        "Code": Object {
-          "S3Bucket": Object {
-            "Ref": "AssetParametersea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204S3Bucket371D99F8",
-          },
-          "S3Key": Object {
-            "Fn::Join": Array [
-              "",
-              Array [
-                Object {
-                  "Fn::Select": Array [
-                    0,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParametersea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204S3VersionKeyFDCB25DD",
-                        },
-                      ],
-                    },
-                  ],
-                },
-                Object {
-                  "Fn::Select": Array [
-                    1,
-                    Object {
-                      "Fn::Split": Array [
-                        "||",
-                        Object {
-                          "Ref": "AssetParametersea4957b16062595851e7d293ee45835db05c5693669a729cc02944b6ad19a204S3VersionKeyFDCB25DD",
-                        },
-                      ],
-                    },
-                  ],
-                },
-              ],
-            ],
-          },
-        },
-        "Handler": "index.handler",
-        "Layers": Array [
-          Object {
-            "Fn::GetAtt": Array [
-              "kubectllayer8C2542BCBF2B4DFEB765E181FD30A9A0617C4ADA",
-              "Outputs.LayerVersionArn",
-            ],
-          },
-        ],
-        "MemorySize": 512,
-        "Role": Object {
-          "Fn::GetAtt": Array [
-            "clusterResourceHandlerServiceRoleEA359C5A",
-            "Arn",
-          ],
-        },
-        "Runtime": "python3.7",
-        "Timeout": 900,
-      },
-      "Type": "AWS::Lambda::Function",
-    },
-    "clusterResourceHandlerServiceRoleDefaultPolicy4E8198ED": Object {
-      "Properties": Object {
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": Array [
-                "eks:CreateCluster",
-                "eks:DescribeCluster",
-                "eks:DeleteCluster",
-                "eks:UpdateClusterVersion",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-            Object {
-              "Action": "iam:PassRole",
-              "Effect": "Allow",
-              "Resource": Object {
-                "Fn::GetAtt": Array [
-                  "clusterClusterRoleB36A1543",
-                  "Arn",
-                ],
-              },
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "clusterResourceHandlerServiceRoleDefaultPolicy4E8198ED",
-        "Roles": Array [
-          Object {
-            "Ref": "clusterResourceHandlerServiceRoleEA359C5A",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
-    "clusterResourceHandlerServiceRoleEA359C5A": Object {
+    "clusterCreationRole2B3B5002": Object {
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
           "Statement": Array [
@@ -1023,7 +1017,97 @@ Object {
               "Action": "sts:AssumeRole",
               "Effect": "Allow",
               "Principal": Object {
-                "Service": "lambda.amazonaws.com",
+                "AWS": Array [
+                  Object {
+                    "Fn::GetAtt": Array [
+                      "awscdkawseksClusterResourceProviderNestedStackawscdkawseksClusterResourceProviderNestedStackResource9827C454",
+                      "Outputs.MyTestEksCdkStackawscdkawseksClusterResourceProviderOnEventHandlerServiceRoleB077E936Arn",
+                    ],
+                  },
+                  Object {
+                    "Fn::GetAtt": Array [
+                      "awscdkawseksClusterResourceProviderNestedStackawscdkawseksClusterResourceProviderNestedStackResource9827C454",
+                      "Outputs.MyTestEksCdkStackawscdkawseksClusterResourceProviderIsCompleteHandlerServiceRoleE22BEA65Arn",
+                    ],
+                  },
+                ],
+              },
+            },
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "AWS": Object {
+                  "Fn::GetAtt": Array [
+                    "awscdkawseksKubectlProviderNestedStackawscdkawseksKubectlProviderNestedStackResourceA7AEBA6B",
+                    "Outputs.MyTestEksCdkStackawscdkawseksKubectlProviderHandlerServiceRoleA095113BArn",
+                  ],
+                },
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "clusterCreationRoleDefaultPolicy69503D2C": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "iam:PassRole",
+              "Effect": "Allow",
+              "Resource": Object {
+                "Fn::GetAtt": Array [
+                  "clusterRole88D0C969",
+                  "Arn",
+                ],
+              },
+            },
+            Object {
+              "Action": Array [
+                "eks:CreateCluster",
+                "eks:DescribeCluster",
+                "eks:DeleteCluster",
+                "eks:UpdateClusterVersion",
+                "eks:UpdateClusterConfig",
+              ],
+              "Effect": "Allow",
+              "Resource": Object {
+                "Fn::Join": Array [
+                  "",
+                  Array [
+                    "arn:",
+                    Object {
+                      "Ref": "AWS::Partition",
+                    },
+                    ":eks:ap-northeast-1:999999999999:cluster/MyEKSCluster",
+                  ],
+                ],
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "clusterCreationRoleDefaultPolicy69503D2C",
+        "Roles": Array [
+          Object {
+            "Ref": "clusterCreationRole2B3B5002",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "clusterRole88D0C969": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "eks.amazonaws.com",
               },
             },
           ],
@@ -1038,7 +1122,19 @@ Object {
                 Object {
                   "Ref": "AWS::Partition",
                 },
-                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+                ":iam::aws:policy/AmazonEKSClusterPolicy",
+              ],
+            ],
+          },
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/AmazonEKSServicePolicy",
               ],
             ],
           },
@@ -1399,6 +1495,9 @@ set -o xtrace
     "clustermanifestalbingresscontroller8AE8469A": Object {
       "DeletionPolicy": "Delete",
       "Properties": Object {
+        "ClusterName": Object {
+          "Ref": "clusterC5B25D0D",
+        },
         "Manifest": Object {
           "Fn::Join": Array [
             "",
@@ -1415,10 +1514,16 @@ set -o xtrace
             ],
           ],
         },
+        "RoleArn": Object {
+          "Fn::GetAtt": Array [
+            "clusterCreationRole2B3B5002",
+            "Arn",
+          ],
+        },
         "ServiceToken": Object {
           "Fn::GetAtt": Array [
-            "clusterKubernetesResourceHandlerC33DE9FA",
-            "Arn",
+            "awscdkawseksKubectlProviderNestedStackawscdkawseksKubectlProviderNestedStackResourceA7AEBA6B",
+            "Outputs.MyTestEksCdkStackawscdkawseksKubectlProviderframeworkonEvent5A89646AArn",
           ],
         },
       },
@@ -1428,6 +1533,9 @@ set -o xtrace
     "clustermanifestclusterautoscalerautodiscover825A804E": Object {
       "DeletionPolicy": "Delete",
       "Properties": Object {
+        "ClusterName": Object {
+          "Ref": "clusterC5B25D0D",
+        },
         "Manifest": Object {
           "Fn::Join": Array [
             "",
@@ -1440,10 +1548,16 @@ set -o xtrace
             ],
           ],
         },
+        "RoleArn": Object {
+          "Fn::GetAtt": Array [
+            "clusterCreationRole2B3B5002",
+            "Arn",
+          ],
+        },
         "ServiceToken": Object {
           "Fn::GetAtt": Array [
-            "clusterKubernetesResourceHandlerC33DE9FA",
-            "Arn",
+            "awscdkawseksKubectlProviderNestedStackawscdkawseksKubectlProviderNestedStackResourceA7AEBA6B",
+            "Outputs.MyTestEksCdkStackawscdkawseksKubectlProviderframeworkonEvent5A89646AArn",
           ],
         },
       },
@@ -1453,11 +1567,20 @@ set -o xtrace
     "clustermanifestebscsidriver8F54203C": Object {
       "DeletionPolicy": "Delete",
       "Properties": Object {
+        "ClusterName": Object {
+          "Ref": "clusterC5B25D0D",
+        },
         "Manifest": "[{\\"apiVersion\\":\\"v1\\",\\"kind\\":\\"ServiceAccount\\",\\"metadata\\":{\\"name\\":\\"ebs-csi-controller-sa\\",\\"namespace\\":\\"kube-system\\"}},{\\"apiVersion\\":\\"rbac.authorization.k8s.io/v1\\",\\"kind\\":\\"ClusterRole\\",\\"metadata\\":{\\"name\\":\\"ebs-external-attacher-role\\"},\\"rules\\":[{\\"apiGroups\\":[\\"\\"],\\"resources\\":[\\"persistentvolumes\\"],\\"verbs\\":[\\"get\\",\\"list\\",\\"watch\\",\\"update\\"]},{\\"apiGroups\\":[\\"\\"],\\"resources\\":[\\"nodes\\"],\\"verbs\\":[\\"get\\",\\"list\\",\\"watch\\"]},{\\"apiGroups\\":[\\"csi.storage.k8s.io\\"],\\"resources\\":[\\"csinodeinfos\\"],\\"verbs\\":[\\"get\\",\\"list\\",\\"watch\\"]},{\\"apiGroups\\":[\\"storage.k8s.io\\"],\\"resources\\":[\\"volumeattachments\\"],\\"verbs\\":[\\"get\\",\\"list\\",\\"watch\\",\\"update\\"]}]},{\\"apiVersion\\":\\"rbac.authorization.k8s.io/v1\\",\\"kind\\":\\"ClusterRole\\",\\"metadata\\":{\\"name\\":\\"ebs-external-provisioner-role\\"},\\"rules\\":[{\\"apiGroups\\":[\\"\\"],\\"resources\\":[\\"persistentvolumes\\"],\\"verbs\\":[\\"get\\",\\"list\\",\\"watch\\",\\"create\\",\\"delete\\"]},{\\"apiGroups\\":[\\"\\"],\\"resources\\":[\\"persistentvolumeclaims\\"],\\"verbs\\":[\\"get\\",\\"list\\",\\"watch\\",\\"update\\"]},{\\"apiGroups\\":[\\"storage.k8s.io\\"],\\"resources\\":[\\"storageclasses\\"],\\"verbs\\":[\\"get\\",\\"list\\",\\"watch\\"]},{\\"apiGroups\\":[\\"\\"],\\"resources\\":[\\"events\\"],\\"verbs\\":[\\"list\\",\\"watch\\",\\"create\\",\\"update\\",\\"patch\\"]},{\\"apiGroups\\":[\\"storage.k8s.io\\"],\\"resources\\":[\\"csinodes\\"],\\"verbs\\":[\\"get\\",\\"list\\",\\"watch\\"]},{\\"apiGroups\\":[\\"\\"],\\"resources\\":[\\"nodes\\"],\\"verbs\\":[\\"get\\",\\"list\\",\\"watch\\"]},{\\"apiGroups\\":[\\"coordination.k8s.io\\"],\\"resources\\":[\\"leases\\"],\\"verbs\\":[\\"get\\",\\"watch\\",\\"list\\",\\"delete\\",\\"update\\",\\"create\\"]}]},{\\"apiVersion\\":\\"rbac.authorization.k8s.io/v1\\",\\"kind\\":\\"ClusterRoleBinding\\",\\"metadata\\":{\\"name\\":\\"ebs-csi-attacher-binding\\"},\\"roleRef\\":{\\"apiGroup\\":\\"rbac.authorization.k8s.io\\",\\"kind\\":\\"ClusterRole\\",\\"name\\":\\"ebs-external-attacher-role\\"},\\"subjects\\":[{\\"kind\\":\\"ServiceAccount\\",\\"name\\":\\"ebs-csi-controller-sa\\",\\"namespace\\":\\"kube-system\\"}]},{\\"apiVersion\\":\\"rbac.authorization.k8s.io/v1\\",\\"kind\\":\\"ClusterRoleBinding\\",\\"metadata\\":{\\"name\\":\\"ebs-csi-provisioner-binding\\"},\\"roleRef\\":{\\"apiGroup\\":\\"rbac.authorization.k8s.io\\",\\"kind\\":\\"ClusterRole\\",\\"name\\":\\"ebs-external-provisioner-role\\"},\\"subjects\\":[{\\"kind\\":\\"ServiceAccount\\",\\"name\\":\\"ebs-csi-controller-sa\\",\\"namespace\\":\\"kube-system\\"}]},{\\"apiVersion\\":\\"apps/v1\\",\\"kind\\":\\"Deployment\\",\\"metadata\\":{\\"name\\":\\"ebs-csi-controller\\",\\"namespace\\":\\"kube-system\\"},\\"spec\\":{\\"replicas\\":2,\\"selector\\":{\\"matchLabels\\":{\\"app\\":\\"ebs-csi-controller\\"}},\\"template\\":{\\"metadata\\":{\\"labels\\":{\\"app\\":\\"ebs-csi-controller\\"}},\\"spec\\":{\\"containers\\":[{\\"args\\":[\\"--endpoint=$(CSI_ENDPOINT)\\",\\"--logtostderr\\",\\"--v=5\\"],\\"env\\":[{\\"name\\":\\"CSI_ENDPOINT\\",\\"value\\":\\"unix:///var/lib/csi/sockets/pluginproxy/csi.sock\\"},{\\"name\\":\\"AWS_ACCESS_KEY_ID\\",\\"valueFrom\\":{\\"secretKeyRef\\":{\\"key\\":\\"key_id\\",\\"name\\":\\"aws-secret\\",\\"optional\\":true}}},{\\"name\\":\\"AWS_SECRET_ACCESS_KEY\\",\\"valueFrom\\":{\\"secretKeyRef\\":{\\"key\\":\\"access_key\\",\\"name\\":\\"aws-secret\\",\\"optional\\":true}}}],\\"image\\":\\"602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/aws-ebs-csi-driver:v0.4.0\\",\\"livenessProbe\\":{\\"failureThreshold\\":5,\\"httpGet\\":{\\"path\\":\\"/healthz\\",\\"port\\":\\"healthz\\"},\\"initialDelaySeconds\\":10,\\"periodSeconds\\":10,\\"timeoutSeconds\\":3},\\"name\\":\\"ebs-plugin\\",\\"ports\\":[{\\"containerPort\\":9808,\\"name\\":\\"healthz\\",\\"protocol\\":\\"TCP\\"}],\\"volumeMounts\\":[{\\"mountPath\\":\\"/var/lib/csi/sockets/pluginproxy/\\",\\"name\\":\\"socket-dir\\"}]},{\\"args\\":[\\"--csi-address=$(ADDRESS)\\",\\"--v=5\\",\\"--feature-gates=Topology=true\\",\\"--enable-leader-election\\",\\"--leader-election-type=leases\\"],\\"env\\":[{\\"name\\":\\"ADDRESS\\",\\"value\\":\\"/var/lib/csi/sockets/pluginproxy/csi.sock\\"}],\\"image\\":\\"602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/csi-provisioner:v1.3.0\\",\\"name\\":\\"csi-provisioner\\",\\"volumeMounts\\":[{\\"mountPath\\":\\"/var/lib/csi/sockets/pluginproxy/\\",\\"name\\":\\"socket-dir\\"}]},{\\"args\\":[\\"--csi-address=$(ADDRESS)\\",\\"--v=5\\"],\\"env\\":[{\\"name\\":\\"ADDRESS\\",\\"value\\":\\"/var/lib/csi/sockets/pluginproxy/csi.sock\\"}],\\"image\\":\\"602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/csi-attacher:v1.2.0\\",\\"name\\":\\"csi-attacher\\",\\"volumeMounts\\":[{\\"mountPath\\":\\"/var/lib/csi/sockets/pluginproxy/\\",\\"name\\":\\"socket-dir\\"}]},{\\"args\\":[\\"--csi-address=/csi/csi.sock\\"],\\"image\\":\\"602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/csi-liveness-probe:v1.1.0\\",\\"name\\":\\"liveness-probe\\",\\"volumeMounts\\":[{\\"mountPath\\":\\"/csi\\",\\"name\\":\\"socket-dir\\"}]}],\\"nodeSelector\\":{\\"beta.kubernetes.io/os\\":\\"linux\\"},\\"priorityClassName\\":\\"system-cluster-critical\\",\\"serviceAccount\\":\\"ebs-csi-controller-sa\\",\\"tolerations\\":[{\\"key\\":\\"CriticalAddonsOnly\\",\\"operator\\":\\"Exists\\"}],\\"volumes\\":[{\\"emptyDir\\":{},\\"name\\":\\"socket-dir\\"}]}}}},{\\"apiVersion\\":\\"apps/v1\\",\\"kind\\":\\"DaemonSet\\",\\"metadata\\":{\\"name\\":\\"ebs-csi-node\\",\\"namespace\\":\\"kube-system\\"},\\"spec\\":{\\"selector\\":{\\"matchLabels\\":{\\"app\\":\\"ebs-csi-node\\"}},\\"template\\":{\\"metadata\\":{\\"labels\\":{\\"app\\":\\"ebs-csi-node\\"}},\\"spec\\":{\\"containers\\":[{\\"args\\":[\\"--endpoint=$(CSI_ENDPOINT)\\",\\"--logtostderr\\",\\"--v=5\\"],\\"env\\":[{\\"name\\":\\"CSI_ENDPOINT\\",\\"value\\":\\"unix:/csi/csi.sock\\"}],\\"image\\":\\"602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/aws-ebs-csi-driver:v0.4.0\\",\\"livenessProbe\\":{\\"failureThreshold\\":5,\\"httpGet\\":{\\"path\\":\\"/healthz\\",\\"port\\":\\"healthz\\"},\\"initialDelaySeconds\\":10,\\"periodSeconds\\":10,\\"timeoutSeconds\\":3},\\"name\\":\\"ebs-plugin\\",\\"ports\\":[{\\"containerPort\\":9808,\\"name\\":\\"healthz\\",\\"protocol\\":\\"TCP\\"}],\\"securityContext\\":{\\"privileged\\":true},\\"volumeMounts\\":[{\\"mountPath\\":\\"/var/lib/kubelet\\",\\"mountPropagation\\":\\"Bidirectional\\",\\"name\\":\\"kubelet-dir\\"},{\\"mountPath\\":\\"/csi\\",\\"name\\":\\"plugin-dir\\"},{\\"mountPath\\":\\"/dev\\",\\"name\\":\\"device-dir\\"}]},{\\"args\\":[\\"--csi-address=$(ADDRESS)\\",\\"--kubelet-registration-path=$(DRIVER_REG_SOCK_PATH)\\",\\"--v=5\\"],\\"env\\":[{\\"name\\":\\"ADDRESS\\",\\"value\\":\\"/csi/csi.sock\\"},{\\"name\\":\\"DRIVER_REG_SOCK_PATH\\",\\"value\\":\\"/var/lib/kubelet/plugins/ebs.csi.aws.com/csi.sock\\"}],\\"image\\":\\"602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/csi-node-driver-registrar:v1.1.0\\",\\"lifecycle\\":{\\"preStop\\":{\\"exec\\":{\\"command\\":[\\"/bin/sh\\",\\"-c\\",\\"rm -rf /registration/ebs.csi.aws.com-reg.sock /csi/csi.sock\\"]}}},\\"name\\":\\"node-driver-registrar\\",\\"volumeMounts\\":[{\\"mountPath\\":\\"/csi\\",\\"name\\":\\"plugin-dir\\"},{\\"mountPath\\":\\"/registration\\",\\"name\\":\\"registration-dir\\"}]},{\\"args\\":[\\"--csi-address=/csi/csi.sock\\"],\\"image\\":\\"602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/csi-liveness-probe:v1.1.0\\",\\"name\\":\\"liveness-probe\\",\\"volumeMounts\\":[{\\"mountPath\\":\\"/csi\\",\\"name\\":\\"plugin-dir\\"}]}],\\"hostNetwork\\":true,\\"nodeSelector\\":{\\"beta.kubernetes.io/os\\":\\"linux\\"},\\"priorityClassName\\":\\"system-node-critical\\",\\"tolerations\\":[{\\"key\\":\\"CriticalAddonsOnly\\",\\"operator\\":\\"Exists\\"}],\\"volumes\\":[{\\"hostPath\\":{\\"path\\":\\"/var/lib/kubelet\\",\\"type\\":\\"Directory\\"},\\"name\\":\\"kubelet-dir\\"},{\\"hostPath\\":{\\"path\\":\\"/var/lib/kubelet/plugins/ebs.csi.aws.com/\\",\\"type\\":\\"DirectoryOrCreate\\"},\\"name\\":\\"plugin-dir\\"},{\\"hostPath\\":{\\"path\\":\\"/var/lib/kubelet/plugins_registry/\\",\\"type\\":\\"Directory\\"},\\"name\\":\\"registration-dir\\"},{\\"hostPath\\":{\\"path\\":\\"/dev\\",\\"type\\":\\"Directory\\"},\\"name\\":\\"device-dir\\"}]}}}},{\\"apiVersion\\":\\"storage.k8s.io/v1beta1\\",\\"kind\\":\\"CSIDriver\\",\\"metadata\\":{\\"name\\":\\"ebs.csi.aws.com\\",\\"namespace\\":\\"kube-system\\"},\\"spec\\":{\\"attachRequired\\":true,\\"podInfoOnMount\\":false}}]",
+        "RoleArn": Object {
+          "Fn::GetAtt": Array [
+            "clusterCreationRole2B3B5002",
+            "Arn",
+          ],
+        },
         "ServiceToken": Object {
           "Fn::GetAtt": Array [
-            "clusterKubernetesResourceHandlerC33DE9FA",
-            "Arn",
+            "awscdkawseksKubectlProviderNestedStackawscdkawseksKubectlProviderNestedStackResourceA7AEBA6B",
+            "Outputs.MyTestEksCdkStackawscdkawseksKubectlProviderframeworkonEvent5A89646AArn",
           ],
         },
       },
@@ -1467,11 +1590,20 @@ set -o xtrace
     "clustermanifestextrernaldns48E0C6EA": Object {
       "DeletionPolicy": "Delete",
       "Properties": Object {
+        "ClusterName": Object {
+          "Ref": "clusterC5B25D0D",
+        },
         "Manifest": "[{\\"apiVersion\\":\\"v1\\",\\"kind\\":\\"ServiceAccount\\",\\"metadata\\":{\\"name\\":\\"external-dns\\",\\"namespace\\":\\"kube-system\\"}},{\\"apiVersion\\":\\"rbac.authorization.k8s.io/v1beta1\\",\\"kind\\":\\"ClusterRole\\",\\"metadata\\":{\\"name\\":\\"external-dns\\"},\\"rules\\":[{\\"apiGroups\\":[\\"\\"],\\"resources\\":[\\"services\\"],\\"verbs\\":[\\"get\\",\\"watch\\",\\"list\\"]},{\\"apiGroups\\":[\\"\\"],\\"resources\\":[\\"pods\\"],\\"verbs\\":[\\"get\\",\\"watch\\",\\"list\\"]},{\\"apiGroups\\":[\\"extensions\\"],\\"resources\\":[\\"ingresses\\"],\\"verbs\\":[\\"get\\",\\"watch\\",\\"list\\"]},{\\"apiGroups\\":[\\"\\"],\\"resources\\":[\\"nodes\\"],\\"verbs\\":[\\"list\\"]}]},{\\"apiVersion\\":\\"rbac.authorization.k8s.io/v1beta1\\",\\"kind\\":\\"ClusterRoleBinding\\",\\"metadata\\":{\\"name\\":\\"external-dns-viewer\\"},\\"roleRef\\":{\\"apiGroup\\":\\"rbac.authorization.k8s.io\\",\\"kind\\":\\"ClusterRole\\",\\"name\\":\\"external-dns\\"},\\"subjects\\":[{\\"kind\\":\\"ServiceAccount\\",\\"name\\":\\"external-dns\\",\\"namespace\\":\\"kube-system\\"}]},{\\"apiVersion\\":\\"extensions/v1beta1\\",\\"kind\\":\\"Deployment\\",\\"metadata\\":{\\"name\\":\\"external-dns\\",\\"namespace\\":\\"kube-system\\"},\\"spec\\":{\\"strategy\\":{\\"type\\":\\"Recreate\\"},\\"template\\":{\\"metadata\\":{\\"labels\\":{\\"app\\":\\"external-dns\\"}},\\"spec\\":{\\"serviceAccountName\\":\\"external-dns\\",\\"containers\\":[{\\"name\\":\\"external-dns\\",\\"image\\":\\"registry.opensource.zalan.do/teapot/external-dns:v0.5.17\\",\\"args\\":[\\"--source=service\\",\\"--source=ingress\\",\\"--domain-filter=test.example.com\\",\\"--provider=aws\\",\\"--policy=upsert-only\\",\\"--aws-zone-type=public\\",\\"--registry=txt\\",\\"--txt-owner-id=my-identifier\\"]}]}}}}]",
+        "RoleArn": Object {
+          "Fn::GetAtt": Array [
+            "clusterCreationRole2B3B5002",
+            "Arn",
+          ],
+        },
         "ServiceToken": Object {
           "Fn::GetAtt": Array [
-            "clusterKubernetesResourceHandlerC33DE9FA",
-            "Arn",
+            "awscdkawseksKubectlProviderNestedStackawscdkawseksKubectlProviderNestedStackResourceA7AEBA6B",
+            "Outputs.MyTestEksCdkStackawscdkawseksKubectlProviderframeworkonEvent5A89646AArn",
           ],
         },
       },
@@ -1481,11 +1613,20 @@ set -o xtrace
     "clustermanifestmetricsserver2D548D9C": Object {
       "DeletionPolicy": "Delete",
       "Properties": Object {
+        "ClusterName": Object {
+          "Ref": "clusterC5B25D0D",
+        },
         "Manifest": "[{\\"kind\\":\\"ClusterRole\\",\\"apiVersion\\":\\"rbac.authorization.k8s.io/v1\\",\\"metadata\\":{\\"name\\":\\"system:aggregated-metrics-reader\\",\\"labels\\":{\\"rbac.authorization.k8s.io/aggregate-to-view\\":\\"true\\",\\"rbac.authorization.k8s.io/aggregate-to-edit\\":\\"true\\",\\"rbac.authorization.k8s.io/aggregate-to-admin\\":\\"true\\"}},\\"rules\\":[{\\"apiGroups\\":[\\"metrics.k8s.io\\"],\\"resources\\":[\\"pods\\",\\"nodes\\"],\\"verbs\\":[\\"get\\",\\"list\\",\\"watch\\"]}]},{\\"apiVersion\\":\\"rbac.authorization.k8s.io/v1beta1\\",\\"kind\\":\\"ClusterRoleBinding\\",\\"metadata\\":{\\"name\\":\\"metrics-server:system:auth-delegator\\"},\\"roleRef\\":{\\"apiGroup\\":\\"rbac.authorization.k8s.io\\",\\"kind\\":\\"ClusterRole\\",\\"name\\":\\"system:auth-delegator\\"},\\"subjects\\":[{\\"kind\\":\\"ServiceAccount\\",\\"name\\":\\"metrics-server\\",\\"namespace\\":\\"kube-system\\"}]},{\\"apiVersion\\":\\"rbac.authorization.k8s.io/v1beta1\\",\\"kind\\":\\"RoleBinding\\",\\"metadata\\":{\\"name\\":\\"metrics-server-auth-reader\\",\\"namespace\\":\\"kube-system\\"},\\"roleRef\\":{\\"apiGroup\\":\\"rbac.authorization.k8s.io\\",\\"kind\\":\\"Role\\",\\"name\\":\\"extension-apiserver-authentication-reader\\"},\\"subjects\\":[{\\"kind\\":\\"ServiceAccount\\",\\"name\\":\\"metrics-server\\",\\"namespace\\":\\"kube-system\\"}]},{\\"apiVersion\\":\\"apiregistration.k8s.io/v1beta1\\",\\"kind\\":\\"APIService\\",\\"metadata\\":{\\"name\\":\\"v1beta1.metrics.k8s.io\\"},\\"spec\\":{\\"service\\":{\\"name\\":\\"metrics-server\\",\\"namespace\\":\\"kube-system\\"},\\"group\\":\\"metrics.k8s.io\\",\\"version\\":\\"v1beta1\\",\\"insecureSkipTLSVerify\\":true,\\"groupPriorityMinimum\\":100,\\"versionPriority\\":100}},{\\"apiVersion\\":\\"v1\\",\\"kind\\":\\"ServiceAccount\\",\\"metadata\\":{\\"name\\":\\"metrics-server\\",\\"namespace\\":\\"kube-system\\"}},{\\"apiVersion\\":\\"apps/v1\\",\\"kind\\":\\"Deployment\\",\\"metadata\\":{\\"name\\":\\"metrics-server\\",\\"namespace\\":\\"kube-system\\",\\"labels\\":{\\"k8s-app\\":\\"metrics-server\\"}},\\"spec\\":{\\"selector\\":{\\"matchLabels\\":{\\"k8s-app\\":\\"metrics-server\\"}},\\"template\\":{\\"metadata\\":{\\"name\\":\\"metrics-server\\",\\"labels\\":{\\"k8s-app\\":\\"metrics-server\\"}},\\"spec\\":{\\"serviceAccountName\\":\\"metrics-server\\",\\"volumes\\":[{\\"name\\":\\"tmp-dir\\",\\"emptyDir\\":{}}],\\"containers\\":[{\\"name\\":\\"metrics-server\\",\\"image\\":\\"k8s.gcr.io/metrics-server-amd64:v0.3.6\\",\\"imagePullPolicy\\":\\"Always\\",\\"volumeMounts\\":[{\\"name\\":\\"tmp-dir\\",\\"mountPath\\":\\"/tmp\\"}]}]}}}},{\\"apiVersion\\":\\"v1\\",\\"kind\\":\\"Service\\",\\"metadata\\":{\\"name\\":\\"metrics-server\\",\\"namespace\\":\\"kube-system\\",\\"labels\\":{\\"kubernetes.io/name\\":\\"Metrics-server\\",\\"kubernetes.io/cluster-service\\":\\"true\\"}},\\"spec\\":{\\"selector\\":{\\"k8s-app\\":\\"metrics-server\\"},\\"ports\\":[{\\"port\\":443,\\"protocol\\":\\"TCP\\",\\"targetPort\\":443}]}},{\\"apiVersion\\":\\"rbac.authorization.k8s.io/v1\\",\\"kind\\":\\"ClusterRole\\",\\"metadata\\":{\\"name\\":\\"system:metrics-server\\"},\\"rules\\":[{\\"apiGroups\\":[\\"\\"],\\"resources\\":[\\"pods\\",\\"nodes\\",\\"nodes/stats\\",\\"namespaces\\"],\\"verbs\\":[\\"get\\",\\"list\\",\\"watch\\"]}]},{\\"apiVersion\\":\\"rbac.authorization.k8s.io/v1\\",\\"kind\\":\\"ClusterRoleBinding\\",\\"metadata\\":{\\"name\\":\\"system:metrics-server\\"},\\"roleRef\\":{\\"apiGroup\\":\\"rbac.authorization.k8s.io\\",\\"kind\\":\\"ClusterRole\\",\\"name\\":\\"system:metrics-server\\"},\\"subjects\\":[{\\"kind\\":\\"ServiceAccount\\",\\"name\\":\\"metrics-server\\",\\"namespace\\":\\"kube-system\\"}]}]",
+        "RoleArn": Object {
+          "Fn::GetAtt": Array [
+            "clusterCreationRole2B3B5002",
+            "Arn",
+          ],
+        },
         "ServiceToken": Object {
           "Fn::GetAtt": Array [
-            "clusterKubernetesResourceHandlerC33DE9FA",
-            "Arn",
+            "awscdkawseksKubectlProviderNestedStackawscdkawseksKubectlProviderNestedStackResourceA7AEBA6B",
+            "Outputs.MyTestEksCdkStackawscdkawseksKubectlProviderframeworkonEvent5A89646AArn",
           ],
         },
       },
@@ -1495,30 +1636,26 @@ set -o xtrace
     "clustermanifestrbacroleCE3EC6EE": Object {
       "DeletionPolicy": "Delete",
       "Properties": Object {
+        "ClusterName": Object {
+          "Ref": "clusterC5B25D0D",
+        },
         "Manifest": "[{\\"apiVersion\\":\\"rbac.authorization.k8s.io/v1\\",\\"kind\\":\\"ClusterRole\\",\\"metadata\\":{\\"labels\\":{\\"app.kubernetes.io/name\\":\\"alb-ingress-controller\\"},\\"name\\":\\"alb-ingress-controller\\"},\\"rules\\":[{\\"apiGroups\\":[\\"\\",\\"extensions\\"],\\"resources\\":[\\"configmaps\\",\\"endpoints\\",\\"events\\",\\"ingresses\\",\\"ingresses/status\\",\\"services\\"],\\"verbs\\":[\\"create\\",\\"get\\",\\"list\\",\\"update\\",\\"watch\\",\\"patch\\"]},{\\"apiGroups\\":[\\"\\",\\"extensions\\"],\\"resources\\":[\\"nodes\\",\\"pods\\",\\"secrets\\",\\"services\\",\\"namespaces\\"],\\"verbs\\":[\\"get\\",\\"list\\",\\"watch\\"]}]},{\\"apiVersion\\":\\"rbac.authorization.k8s.io/v1\\",\\"kind\\":\\"ClusterRoleBinding\\",\\"metadata\\":{\\"labels\\":{\\"app.kubernetes.io/name\\":\\"alb-ingress-controller\\"},\\"name\\":\\"alb-ingress-controller\\"},\\"roleRef\\":{\\"apiGroup\\":\\"rbac.authorization.k8s.io\\",\\"kind\\":\\"ClusterRole\\",\\"name\\":\\"alb-ingress-controller\\"},\\"subjects\\":[{\\"kind\\":\\"ServiceAccount\\",\\"name\\":\\"alb-ingress-controller\\",\\"namespace\\":\\"kube-system\\"}]},{\\"apiVersion\\":\\"v1\\",\\"kind\\":\\"ServiceAccount\\",\\"metadata\\":{\\"labels\\":{\\"app.kubernetes.io/name\\":\\"alb-ingress-controller\\"},\\"name\\":\\"alb-ingress-controller\\",\\"namespace\\":\\"kube-system\\"}}]",
+        "RoleArn": Object {
+          "Fn::GetAtt": Array [
+            "clusterCreationRole2B3B5002",
+            "Arn",
+          ],
+        },
         "ServiceToken": Object {
           "Fn::GetAtt": Array [
-            "clusterKubernetesResourceHandlerC33DE9FA",
-            "Arn",
+            "awscdkawseksKubectlProviderNestedStackawscdkawseksKubectlProviderNestedStackResourceA7AEBA6B",
+            "Outputs.MyTestEksCdkStackawscdkawseksKubectlProviderframeworkonEvent5A89646AArn",
           ],
         },
       },
       "Type": "Custom::AWSCDK-EKS-KubernetesResource",
       "UpdateReplacePolicy": "Delete",
     },
-    "kubectllayer8C2542BCBF2B4DFEB765E181FD30A9A0617C4ADA": Object {
-      "Properties": Object {
-        "Location": Object {
-          "ApplicationId": "arn:aws:serverlessrepo:us-east-1:903779448426:applications/lambda-layer-kubectl",
-          "SemanticVersion": "1.13.7",
-        },
-        "Parameters": Object {
-          "LayerName": "kubectl-c274e4f8dd091f2b7f14c7d7ae66eeb8",
-        },
-      },
-      "Type": "AWS::Serverless::Application",
-    },
   },
-  "Transform": "AWS::Serverless-2016-10-31",
 }
 `;

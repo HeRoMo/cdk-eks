@@ -20,9 +20,13 @@ settings:
       - .ts
       - .js
       - .json
+  import/extensions:
+    - .ts
+    - .js
   import/resolver:
     node:
       paths:
+        - bin
         - lib
         - test
       extensions:
@@ -36,6 +40,11 @@ ignorePatterns:
   - lib/**/*.d.ts
   - test/**/*.d.ts
 rules:
+  import/extensions:
+    - error
+    - ignorePackages
+    - js: never
+      ts: never
   import/prefer-default-export: off
   no-useless-constructor: 0
   no-new: 0

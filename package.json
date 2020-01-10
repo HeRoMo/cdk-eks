@@ -27,7 +27,7 @@
     "eslint-plugin-jest": "^23.3.0",
     "jest": "^24.9.0",
     "ts-jest": "^24.3.0",
-    "ts-node": "^8.5.4",
+    "ts-node": "^8.6.0",
     "typescript": "^3.7.4"
   },
   "dependencies": {

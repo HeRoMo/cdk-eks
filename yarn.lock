@@ -2,14 +2,14 @@
 # yarn lockfile v1
 
 
-"@aws-cdk/assert@^1.20.0":
-  version "1.20.0"
-  resolved "https://registry.yarnpkg.com/@aws-cdk/assert/-/assert-1.20.0.tgz#96585aa5b89f29ec71ab692b4c05f67f507ffdd6"
-  integrity sha512-EKmVe0kgFos9ij2PHrPwodt5aSjJHnx+WaCgjRlHTY/b1FNMw0yo74g+8caDXUXRIPPOW/GPtmLtCyNAqoN0Qg==
+"@aws-cdk/assert@^1.22.0":
+  version "1.22.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/assert/-/assert-1.22.0.tgz#b9b7b2feefdcea63e8755a13484a332e215ab40e"
+  integrity sha512-f0dzutxLHYAldKLfdGDedx4ot145Jr2u1mj26FaO/W+DmqHP8ev3bq4yJZv8ZdvaiLlIrXyodtJGxuW7mVKpIg==
   dependencies:
-    "@aws-cdk/cloudformation-diff" "1.20.0"
-    "@aws-cdk/core" "1.20.0"
-    "@aws-cdk/cx-api" "1.20.0"
+    "@aws-cdk/cloudformation-diff" "1.22.0"
+    "@aws-cdk/core" "1.22.0"
+    "@aws-cdk/cx-api" "1.22.0"
 
 "@aws-cdk/assets@1.20.0":
   version "1.20.0"
@@ -413,32 +413,12 @@
     "@aws-cdk/aws-iam" "1.20.0"
     "@aws-cdk/core" "1.20.0"
 
-"@aws-cdk/cfnspec@1.20.0":
-  version "1.20.0"
-  resolved "https://registry.yarnpkg.com/@aws-cdk/cfnspec/-/cfnspec-1.20.0.tgz#f7f537d9484427b9907da011cb495dae3f2d0e1a"
-  integrity sha512-WT3AcS1k0Fgr/EJItGFTgyjbF1+vmVjkd6qSRasgBRzUGoOvdPNN7J3YzO6CSTXTrI7+RPCCqXdW6Ri5yLyEfw==
-  dependencies:
-    md5 "^2.2.1"
-
 "@aws-cdk/cfnspec@1.22.0":
   version "1.22.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/cfnspec/-/cfnspec-1.22.0.tgz#3ae4c59c48441935a8c808702c204e53b4433879"
   integrity sha512-2RYtdveWQvZkYaWB0sQjuU5pBJO8C2Hg+o1NPv7vUqSm9sPfcJOniFmx1SoRn+E6GZtriv+zXOnsfhmVQRAuGw==
   dependencies:
     md5 "^2.2.1"
-
-"@aws-cdk/cloudformation-diff@1.20.0":
-  version "1.20.0"
-  resolved "https://registry.yarnpkg.com/@aws-cdk/cloudformation-diff/-/cloudformation-diff-1.20.0.tgz#bf9af8ad6a6b2e0a5863f9ab2e1fae268523950a"
-  integrity sha512-7t8/WSOeQQ4jbc9wN0NDP/SJ02/lsDZi5W67itQzHGqRF6qASC9pN1l+91vjZix8Y/nf8d12HRqbbjg0FTHPYg==
-  dependencies:
-    "@aws-cdk/cfnspec" "1.20.0"
-    "@aws-cdk/cx-api" "1.20.0"
-    colors "^1.4.0"
-    diff "^4.0.1"
-    fast-deep-equal "^3.1.1"
-    string-width "^4.2.0"
-    table "^5.4.6"
 
 "@aws-cdk/cloudformation-diff@1.22.0":
   version "1.22.0"
@@ -453,12 +433,19 @@
     string-width "^4.2.0"
     table "^5.4.6"
 
-"@aws-cdk/core@1.20.0", "@aws-cdk/core@^1.20.0":
+"@aws-cdk/core@1.20.0":
   version "1.20.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/core/-/core-1.20.0.tgz#41ce8189344d6463cfbb705b7d966b049640dea8"
   integrity sha512-nzgNG4P583IkEdpaskx5/6L+xTDQ3qyxi++bb2QgGlH1VEjU80/pexRCduuSIyejcWq2pe8c5PHaXjHzvO7xpA==
   dependencies:
     "@aws-cdk/cx-api" "1.20.0"
+
+"@aws-cdk/core@1.22.0", "@aws-cdk/core@^1.20.0":
+  version "1.22.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/core/-/core-1.22.0.tgz#45cc5e962e71c34988d243104711b5558dcb4bc1"
+  integrity sha512-SD0PIOEnZ97ghF4bIf097U9l9jPtPQ5u8Uv9Uh4VwwwIPR6H07O5Qpkoj6rUwSmXc6HUlBL9OKcVjW47kMorNQ==
+  dependencies:
+    "@aws-cdk/cx-api" "1.22.0"
 
 "@aws-cdk/custom-resources@1.20.0":
   version "1.20.0"

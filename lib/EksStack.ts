@@ -1,15 +1,14 @@
 import * as path from 'path';
 
 import { Construct, Tag } from '@aws-cdk/core';
-import { Vpc, InstanceType } from '@aws-cdk/aws-ec2';
+import { Vpc, InstanceType, SubnetType } from '@aws-cdk/aws-ec2';
 import {
   AccountRootPrincipal,
   IRole,
   ManagedPolicy,
   Role,
 } from '@aws-cdk/aws-iam';
-import { Cluster } from '@aws-cdk/aws-eks';
-import { AutoScalingGroup } from '@aws-cdk/aws-autoscaling';
+import { Cluster, Nodegroup } from '@aws-cdk/aws-eks';
 
 import { BaseStack } from './BaseStack';
 import { loadManifestYaml, loadManifestYamlAll } from './utils/manifest_reader';
@@ -23,8 +22,12 @@ import PolicyStack from './policies/PolicyStack';
 export class EksStack extends BaseStack {
   public readonly cluster: Cluster;
 
+  private vpc: Vpc;
+
   constructor(scope: Construct, id: string, props: { vpc: Vpc }) {
     super(scope, id);
+
+    this.vpc = props.vpc;
 
     // IAM Role for EKS
     const eksRole = new Role(this, 'EksRole', {
@@ -42,16 +45,23 @@ export class EksStack extends BaseStack {
       defaultCapacity: 0,
     });
 
-    const autoScalingGroup = this.cluster.addCapacity('capacity', {
-      desiredCapacity: 2,
+    const nodeGroup = this.cluster.addNodegroup('capacity', {
+      minSize: 3,
+      maxSize: 6,
+      desiredSize: 3,
       instanceType: new InstanceType('t3.small'),
+      nodegroupName: 'MyNodeGroup',
+      subnets: this.vpc.selectSubnets({ subnetType: SubnetType.PRIVATE }),
+      labels: {
+        'cluster-code': 'MyEKSCluster',
+      },
     });
 
     // Create kubernetes resources
-    this.appendAlbIngressController(autoScalingGroup.role);
-    this.appendClusterAutoscaler(autoScalingGroup);
-    this.appendEbsCsiDriver(autoScalingGroup.role);
-    this.appendExternalDns(autoScalingGroup.role);
+    this.appendAlbIngressController(nodeGroup.role);
+    this.appendClusterAutoscaler(nodeGroup);
+    this.appendEbsCsiDriver(nodeGroup.role);
+    this.appendExternalDns(nodeGroup.role);
     this.appendMetricsServer();
   }
 
@@ -90,13 +100,11 @@ export class EksStack extends BaseStack {
 
   /**
    * configure Cluster Autoscaler
-   * @param autoScalingGroup
+   * @param nodeGroup
    */
-  private appendClusterAutoscaler(autoScalingGroup: AutoScalingGroup): void {
-    Tag.add(autoScalingGroup, 'k8s.io/cluster-autoscaler/enabled', 'owned');
-    Tag.add(autoScalingGroup, `k8s.io/cluster-autoscaler/${this.cluster.clusterName}`, 'true');
+  private appendClusterAutoscaler(nodeGroup: Nodegroup): void {
     const stack = new PolicyStack(this, 'ClusterAutoScaler', 'cluster-autoscaler.json');
-    autoScalingGroup.role.addManagedPolicy(stack.policy);
+    nodeGroup.role.addManagedPolicy(stack.policy);
 
     const fileName = path.join(__dirname, '..', 'kubernetes-manifests', 'cluster-autoscaler', 'cluster-autoscaler-autodiscover.yaml');
     const manifests = loadManifestYaml(fileName);

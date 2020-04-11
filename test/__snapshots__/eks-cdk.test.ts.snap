@@ -676,10 +676,6 @@ Object {
       "Description": "S3 key for asset version \\"c32e11c1a9a2763d88d82cedc7a6d843959a9deec6b7c9c5d7b661354afaa03d\\"",
       "Type": "String",
     },
-    "SsmParameterValueawsserviceeksoptimizedami114amazonlinux2recommendedimageidC96584B6F00A464EAD1953AFF4B05118Parameter": Object {
-      "Default": "/aws/service/eks/optimized-ami/1.14/amazon-linux-2/recommended/image_id",
-      "Type": "AWS::SSM::Parameter::Value<String>",
-    },
   },
   "Resources": Object {
     "EksRole7A4BFDF2": Object {
@@ -883,14 +879,7 @@ Object {
                   "Arn",
                 ],
               },
-              "\\\\\\",\\\\\\"groups\\\\\\":[\\\\\\"system:masters\\\\\\"]},{\\\\\\"rolearn\\\\\\":\\\\\\"",
-              Object {
-                "Fn::GetAtt": Array [
-                  "clustercapacityInstanceRole4828E066",
-                  "Arn",
-                ],
-              },
-              "\\\\\\",\\\\\\"username\\\\\\":\\\\\\"system:node:{{EC2PrivateDNSName}}\\\\\\",\\\\\\"groups\\\\\\":[\\\\\\"system:bootstrappers\\\\\\",\\\\\\"system:nodes\\\\\\"]}]\\",\\"mapUsers\\":\\"[]\\",\\"mapAccounts\\":\\"[]\\"}}]",
+              "\\\\\\",\\\\\\"groups\\\\\\":[\\\\\\"system:masters\\\\\\"]}]\\",\\"mapUsers\\":\\"[]\\",\\"mapAccounts\\":\\"[]\\"}}]",
             ],
           ],
         },
@@ -987,27 +976,6 @@ Object {
         },
       },
       "Type": "AWS::EC2::SecurityGroup",
-    },
-    "clusterControlPlaneSecurityGroupfromMyTestEksCdkStackclustercapacityInstanceSecurityGroupF3E2EC4644354255BD6": Object {
-      "Properties": Object {
-        "Description": "from MyTestEksCdkStackclustercapacityInstanceSecurityGroupF3E2EC46:443",
-        "FromPort": 443,
-        "GroupId": Object {
-          "Fn::GetAtt": Array [
-            "clusterControlPlaneSecurityGroup7F1D5AB2",
-            "GroupId",
-          ],
-        },
-        "IpProtocol": "tcp",
-        "SourceSecurityGroupId": Object {
-          "Fn::GetAtt": Array [
-            "clustercapacityInstanceSecurityGroup8AD6E10E",
-            "GroupId",
-          ],
-        },
-        "ToPort": 443,
-      },
-      "Type": "AWS::EC2::SecurityGroupIngress",
     },
     "clusterCreationRole2B3B5002": Object {
       "Properties": Object {
@@ -1148,100 +1116,31 @@ Object {
       },
       "Type": "AWS::IAM::Policy",
     },
-    "clusterRole88D0C969": Object {
+    "clusterNodegroupcapacity8E195C1A": Object {
       "Properties": Object {
-        "AssumeRolePolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": Object {
-                "Service": "eks.amazonaws.com",
-              },
-            },
+        "ClusterName": Object {
+          "Ref": "clusterC5B25D0D",
+        },
+        "ForceUpdateEnabled": true,
+        "InstanceTypes": Array [
+          "t3.small",
+        ],
+        "Labels": Object {
+          "cluster-code": "MyEKSCluster",
+        },
+        "NodeRole": Object {
+          "Fn::GetAtt": Array [
+            "clusterNodegroupcapacityNodeGroupRoleB8D8BFC1",
+            "Arn",
           ],
-          "Version": "2012-10-17",
         },
-        "ManagedPolicyArns": Array [
-          Object {
-            "Fn::Join": Array [
-              "",
-              Array [
-                "arn:",
-                Object {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/AmazonEKSClusterPolicy",
-              ],
-            ],
-          },
-          Object {
-            "Fn::Join": Array [
-              "",
-              Array [
-                "arn:",
-                Object {
-                  "Ref": "AWS::Partition",
-                },
-                ":iam::aws:policy/AmazonEKSServicePolicy",
-              ],
-            ],
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Role",
-    },
-    "clustercapacityASG18452D96": Object {
-      "Properties": Object {
-        "DesiredCapacity": "2",
-        "LaunchConfigurationName": Object {
-          "Ref": "clustercapacityLaunchConfig30223FC6",
+        "NodegroupName": "MyNodeGroup",
+        "ScalingConfig": Object {
+          "DesiredSize": 3,
+          "MaxSize": 6,
+          "MinSize": 3,
         },
-        "MaxSize": "2",
-        "MinSize": "1",
-        "Tags": Array [
-          Object {
-            "Key": "Name",
-            "PropagateAtLaunch": true,
-            "Value": "MyTestEksCdkStack/cluster/capacity",
-          },
-          Object {
-            "Key": Object {
-              "Fn::Join": Array [
-                "",
-                Array [
-                  "kubernetes.io/cluster/",
-                  Object {
-                    "Ref": "clusterC5B25D0D",
-                  },
-                ],
-              ],
-            },
-            "PropagateAtLaunch": true,
-            "Value": "owned",
-          },
-          Object {
-            "Key": "k8s.io/cluster-autoscaler/enabled",
-            "PropagateAtLaunch": true,
-            "Value": "owned",
-          },
-          Object {
-            "Key": Object {
-              "Fn::Join": Array [
-                "",
-                Array [
-                  "k8s.io/cluster-autoscaler/",
-                  Object {
-                    "Ref": "clusterC5B25D0D",
-                  },
-                ],
-              ],
-            },
-            "PropagateAtLaunch": true,
-            "Value": "true",
-          },
-        ],
-        "VPCZoneIdentifier": Array [
+        "Subnets": Array [
           Object {
             "Fn::ImportValue": "MyTestVpcStack:ExportsOutputRefEksVpcPrivateSubnet1SubnetDC5B4B59DBC53273",
           },
@@ -1253,35 +1152,9 @@ Object {
           },
         ],
       },
-      "Type": "AWS::AutoScaling::AutoScalingGroup",
-      "UpdatePolicy": Object {
-        "AutoScalingRollingUpdate": Object {
-          "PauseTime": "PT0S",
-          "SuspendProcesses": Array [
-            "HealthCheck",
-            "ReplaceUnhealthy",
-            "AZRebalance",
-            "AlarmNotification",
-            "ScheduledActions",
-          ],
-          "WaitOnResourceSignals": false,
-        },
-        "AutoScalingScheduledAction": Object {
-          "IgnoreUnmodifiedGroupSizeProperties": true,
-        },
-      },
+      "Type": "AWS::EKS::Nodegroup",
     },
-    "clustercapacityInstanceProfile36C4BC01": Object {
-      "Properties": Object {
-        "Roles": Array [
-          Object {
-            "Ref": "clustercapacityInstanceRole4828E066",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::InstanceProfile",
-    },
-    "clustercapacityInstanceRole4828E066": Object {
+    "clusterNodegroupcapacityNodeGroupRoleB8D8BFC1": Object {
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
           "Statement": Array [
@@ -1345,201 +1218,51 @@ Object {
             "Fn::ImportValue": "MyTestEksCdkStackExternalDNSPolicyStack46479C83:ExternalDNSPolicyStackExportsOutputRefExternalDNSPolicyF0AE30E4117D2412",
           },
         ],
-        "Tags": Array [
-          Object {
-            "Key": "Name",
-            "Value": "MyTestEksCdkStack/cluster/capacity",
-          },
-          Object {
-            "Key": Object {
-              "Fn::Join": Array [
-                "",
-                Array [
-                  "kubernetes.io/cluster/",
-                  Object {
-                    "Ref": "clusterC5B25D0D",
-                  },
-                ],
-              ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "clusterRole88D0C969": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "eks.amazonaws.com",
+              },
             },
-            "Value": "owned",
-          },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
           Object {
-            "Key": "k8s.io/cluster-autoscaler/enabled",
-            "Value": "owned",
-          },
-          Object {
-            "Key": Object {
-              "Fn::Join": Array [
-                "",
-                Array [
-                  "k8s.io/cluster-autoscaler/",
-                  Object {
-                    "Ref": "clusterC5B25D0D",
-                  },
-                ],
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/AmazonEKSClusterPolicy",
               ],
-            },
-            "Value": "true",
+            ],
+          },
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/AmazonEKSServicePolicy",
+              ],
+            ],
           },
         ],
       },
       "Type": "AWS::IAM::Role",
-    },
-    "clustercapacityInstanceSecurityGroup8AD6E10E": Object {
-      "Properties": Object {
-        "GroupDescription": "MyTestEksCdkStack/cluster/capacity/InstanceSecurityGroup",
-        "SecurityGroupEgress": Array [
-          Object {
-            "CidrIp": "0.0.0.0/0",
-            "Description": "Allow all outbound traffic by default",
-            "IpProtocol": "-1",
-          },
-        ],
-        "Tags": Array [
-          Object {
-            "Key": "Name",
-            "Value": "MyTestEksCdkStack/cluster/capacity",
-          },
-          Object {
-            "Key": Object {
-              "Fn::Join": Array [
-                "",
-                Array [
-                  "kubernetes.io/cluster/",
-                  Object {
-                    "Ref": "clusterC5B25D0D",
-                  },
-                ],
-              ],
-            },
-            "Value": "owned",
-          },
-          Object {
-            "Key": "k8s.io/cluster-autoscaler/enabled",
-            "Value": "owned",
-          },
-          Object {
-            "Key": Object {
-              "Fn::Join": Array [
-                "",
-                Array [
-                  "k8s.io/cluster-autoscaler/",
-                  Object {
-                    "Ref": "clusterC5B25D0D",
-                  },
-                ],
-              ],
-            },
-            "Value": "true",
-          },
-        ],
-        "VpcId": Object {
-          "Fn::ImportValue": "MyTestVpcStack:ExportsOutputRefEksVpc4BB427FA336B0142",
-        },
-      },
-      "Type": "AWS::EC2::SecurityGroup",
-    },
-    "clustercapacityInstanceSecurityGroupfromMyTestEksCdkStackclusterControlPlaneSecurityGroupB062E77E102565535E5246EB1": Object {
-      "Properties": Object {
-        "Description": "from MyTestEksCdkStackclusterControlPlaneSecurityGroupB062E77E:1025-65535",
-        "FromPort": 1025,
-        "GroupId": Object {
-          "Fn::GetAtt": Array [
-            "clustercapacityInstanceSecurityGroup8AD6E10E",
-            "GroupId",
-          ],
-        },
-        "IpProtocol": "tcp",
-        "SourceSecurityGroupId": Object {
-          "Fn::GetAtt": Array [
-            "clusterControlPlaneSecurityGroup7F1D5AB2",
-            "GroupId",
-          ],
-        },
-        "ToPort": 65535,
-      },
-      "Type": "AWS::EC2::SecurityGroupIngress",
-    },
-    "clustercapacityInstanceSecurityGroupfromMyTestEksCdkStackclusterControlPlaneSecurityGroupB062E77E44342E946DA": Object {
-      "Properties": Object {
-        "Description": "from MyTestEksCdkStackclusterControlPlaneSecurityGroupB062E77E:443",
-        "FromPort": 443,
-        "GroupId": Object {
-          "Fn::GetAtt": Array [
-            "clustercapacityInstanceSecurityGroup8AD6E10E",
-            "GroupId",
-          ],
-        },
-        "IpProtocol": "tcp",
-        "SourceSecurityGroupId": Object {
-          "Fn::GetAtt": Array [
-            "clusterControlPlaneSecurityGroup7F1D5AB2",
-            "GroupId",
-          ],
-        },
-        "ToPort": 443,
-      },
-      "Type": "AWS::EC2::SecurityGroupIngress",
-    },
-    "clustercapacityInstanceSecurityGroupfromMyTestEksCdkStackclustercapacityInstanceSecurityGroupF3E2EC46ALLTRAFFIC8A158829": Object {
-      "Properties": Object {
-        "Description": "from MyTestEksCdkStackclustercapacityInstanceSecurityGroupF3E2EC46:ALL TRAFFIC",
-        "GroupId": Object {
-          "Fn::GetAtt": Array [
-            "clustercapacityInstanceSecurityGroup8AD6E10E",
-            "GroupId",
-          ],
-        },
-        "IpProtocol": "-1",
-        "SourceSecurityGroupId": Object {
-          "Fn::GetAtt": Array [
-            "clustercapacityInstanceSecurityGroup8AD6E10E",
-            "GroupId",
-          ],
-        },
-      },
-      "Type": "AWS::EC2::SecurityGroupIngress",
-    },
-    "clustercapacityLaunchConfig30223FC6": Object {
-      "DependsOn": Array [
-        "clustercapacityInstanceRole4828E066",
-      ],
-      "Properties": Object {
-        "IamInstanceProfile": Object {
-          "Ref": "clustercapacityInstanceProfile36C4BC01",
-        },
-        "ImageId": Object {
-          "Ref": "SsmParameterValueawsserviceeksoptimizedami114amazonlinux2recommendedimageidC96584B6F00A464EAD1953AFF4B05118Parameter",
-        },
-        "InstanceType": "t3.small",
-        "SecurityGroups": Array [
-          Object {
-            "Fn::GetAtt": Array [
-              "clustercapacityInstanceSecurityGroup8AD6E10E",
-              "GroupId",
-            ],
-          },
-        ],
-        "UserData": Object {
-          "Fn::Base64": Object {
-            "Fn::Join": Array [
-              "",
-              Array [
-                "#!/bin/bash
-set -o xtrace
-/etc/eks/bootstrap.sh ",
-                Object {
-                  "Ref": "clusterC5B25D0D",
-                },
-                " --kubelet-extra-args \\"--node-labels lifecycle=OnDemand\\" --use-max-pods true
-/opt/aws/bin/cfn-signal --exit-code $? --stack MyTestEksCdkStack --resource clustercapacityASG18452D96 --region ap-northeast-1",
-              ],
-            ],
-          },
-        },
-      },
-      "Type": "AWS::AutoScaling::LaunchConfiguration",
     },
     "clustermanifestalbingresscontroller8AE8469A": Object {
       "DeletionPolicy": "Delete",

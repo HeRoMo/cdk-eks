@@ -11,10 +11,11 @@ import {
 import { Cluster, Nodegroup } from '@aws-cdk/aws-eks';
 
 import { BaseStack } from './BaseStack';
-import { loadManifestYaml, loadManifestYamlAll } from './utils/manifest_reader';
+import { loadManifestYaml } from './utils/manifest_reader';
 
 import { appDomain, region } from './config';
 import PolicyStack from './policies/PolicyStack';
+import { K8sResource } from './k8sResources/K8sResource';
 
 /**
  * Create EKS cluster with kubernetes resources related with AWS resources
@@ -159,7 +160,6 @@ export class EksStack extends BaseStack {
    */
   private appendMetricsServer(): void {
     const dirPath = 'kubernetes-manifests/metrics-server';
-    const manifects = loadManifestYamlAll(dirPath);
-    this.cluster.addResource('metrics-server', ...manifects);
+    new K8sResource(this, 'metrics-server', this.cluster, dirPath);
   }
 }

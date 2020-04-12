@@ -58,51 +58,12 @@ export class EksStack extends BaseStack {
     });
 
     // Create kubernetes resources
-    this.appendAlbIngressController();
-    this.appendClusterAutoscaler(nodeGroup);
-    this.appendEbsCsiDriver(nodeGroup);
-    this.appendExternalDns(nodeGroup);
-    this.appendMetricsServer();
-  }
-
-  /**
-   * configure ALB ingress controller
-   * @param clusterNodeRole
-   */
-  private appendAlbIngressController(): void {
     new AlbIngressController(this, 'ALBIngressController', this.cluster);
-  }
-
-  /**
-   * configure Cluster Autoscaler
-   * @param nodeGroup
-   */
-  private appendClusterAutoscaler(nodeGroup: Nodegroup): void {
     new ClusterAutoscaler(this, 'cluster-autoscaler', this.cluster, nodeGroup);
-  }
-
-  /**
-   * configure AWS EBS CSI Driver
-   * @param clusterNodeRole
-   */
-  private appendEbsCsiDriver(nodeGroup: Nodegroup): void {
     new EbsCsiDriver(this, 'ebs-csi-driver', this.cluster, nodeGroup);
-  }
-
-  /**
-   * configure External DNS
-   * @param clusterNodeRole
-   */
-  private appendExternalDns(nodeGroup: Nodegroup): void {
+    new MetricsServer(this, 'metrics-server', this.cluster);
     if (appDomain) {
       new ExternalDns(this, 'extrernal-dns', this.cluster, nodeGroup, { domain: appDomain });
     }
-  }
-
-  /**
-   * configure Metrics Server
-   */
-  private appendMetricsServer(): void {
-    new MetricsServer(this, 'metrics-server', this.cluster);
   }
 }

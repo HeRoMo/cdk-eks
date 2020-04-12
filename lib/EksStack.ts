@@ -18,6 +18,7 @@ import { createPolicy } from './policies/PolicyUtils';
 import { AlbIngressController } from './k8sResources/AlbIngressController';
 import { MetricsServer } from './k8sResources/MetricsServer';
 import { ClusterAutoscaler } from './k8sResources/ClusterAutoscaler';
+import { EbsCsiDriver } from './k8sResources/EbsCsiDriver';
 
 /**
  * Create EKS cluster with kubernetes resources related with AWS resources
@@ -63,7 +64,7 @@ export class EksStack extends BaseStack {
     // Create kubernetes resources
     this.appendAlbIngressController();
     this.appendClusterAutoscaler(nodeGroup);
-    this.appendEbsCsiDriver(nodeGroup.role);
+    this.appendEbsCsiDriver(nodeGroup);
     this.appendExternalDns(nodeGroup.role);
     this.appendMetricsServer();
   }
@@ -88,13 +89,8 @@ export class EksStack extends BaseStack {
    * configure AWS EBS CSI Driver
    * @param clusterNodeRole
    */
-  private appendEbsCsiDriver(clusterNodeRole: IRole): void {
-    const policy = createPolicy(this, 'AmazonEBSCSIDriver', 'ebs-csi-driver.json');
-    clusterNodeRole.attachInlinePolicy(policy);
-
-    const filename = path.join(__dirname, '..', 'kubernetes-manifests', 'ebs-csi-driver', 'ebs-csi-driver.yaml');
-    const ebsCsiSriverManifests = loadManifestYaml(filename);
-    this.cluster.addResource('ebs-csi-driver', ...ebsCsiSriverManifests);
+  private appendEbsCsiDriver(nodeGroup: Nodegroup): void {
+    new EbsCsiDriver(this, 'ebs-csi-driver', this.cluster, nodeGroup);
   }
 
   /**

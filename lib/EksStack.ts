@@ -5,7 +5,7 @@ import {
   ManagedPolicy,
   Role,
 } from '@aws-cdk/aws-iam';
-import { Cluster, Nodegroup } from '@aws-cdk/aws-eks';
+import { Cluster } from '@aws-cdk/aws-eks';
 
 import { BaseStack } from './BaseStack';
 

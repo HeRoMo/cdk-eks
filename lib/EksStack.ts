@@ -1,6 +1,6 @@
 import * as path from 'path';
 
-import { Construct, Tag } from '@aws-cdk/core';
+import { Construct } from '@aws-cdk/core';
 import { Vpc, InstanceType, SubnetType } from '@aws-cdk/aws-ec2';
 import {
   AccountRootPrincipal,
@@ -13,9 +13,10 @@ import { Cluster, Nodegroup } from '@aws-cdk/aws-eks';
 import { BaseStack } from './BaseStack';
 import { loadManifestYaml } from './utils/manifest_reader';
 
-import { appDomain, region } from './config';
-import { K8sResource } from './k8sResources/K8sResource';
+import { appDomain } from './config';
 import { createPolicy } from './policies/PolicyUtils';
+import { AlbIngressController } from './k8sResources/AlbIngressController';
+import { MetricsServer } from './k8sResources/MetricsServer';
 
 /**
  * Create EKS cluster with kubernetes resources related with AWS resources
@@ -59,7 +60,7 @@ export class EksStack extends BaseStack {
     });
 
     // Create kubernetes resources
-    this.appendAlbIngressController(nodeGroup.role);
+    this.appendAlbIngressController();
     this.appendClusterAutoscaler(nodeGroup);
     this.appendEbsCsiDriver(nodeGroup.role);
     this.appendExternalDns(nodeGroup.role);
@@ -70,33 +71,8 @@ export class EksStack extends BaseStack {
    * configure ALB ingress controller
    * @param clusterNodeRole
    */
-  private appendAlbIngressController(clusterNodeRole: IRole): void {
-    this.cluster.vpc.publicSubnets.forEach((subnet) => {
-      subnet.node.applyAspect(new Tag('kubernetes.io/role/elb', '1', { includeResourceTypes: ['AWS::EC2::Subnet'] }));
-    });
-    this.cluster.vpc.privateSubnets.forEach((subnet) => {
-      subnet.node.applyAspect(new Tag('kubernetes.io/role/internal-elb', '1', { includeResourceTypes: ['AWS::EC2::Subnet'] }));
-    });
-
-    const policy = createPolicy(this, 'ALBIngressControllerIAM', 'alb-ingress-controller.json');
-    clusterNodeRole.attachInlinePolicy(policy);
-
-    const rbacRoleManifests = loadManifestYaml('kubernetes-manifests/alb-ingress-controller/rbac-role.yaml');
-    this.cluster.addResource('rbac-role', ...rbacRoleManifests);
-    const filename = path.join(__dirname, '..', 'kubernetes-manifests', 'alb-ingress-controller', 'alb-ingress-controller.yaml');
-    const [albIngressControllerManifests] = loadManifestYaml(filename);
-
-    try {
-      const { args } = albIngressControllerManifests.spec.template.spec.containers[0];
-      args.push(`--cluster-name=${this.cluster.clusterName}`);
-      args.push(`--aws-vpc-id=${this.cluster.vpc.vpcId}`);
-      args.push(`--aws-region=${region}`);
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error({ error });
-      process.exit(1);
-    }
-    this.cluster.addResource('alb-ingress-controller', albIngressControllerManifests);
+  private appendAlbIngressController(): void {
+    new AlbIngressController(this, 'ALBIngressController', this.cluster);
   }
 
   /**
@@ -161,7 +137,6 @@ export class EksStack extends BaseStack {
    * configure Metrics Server
    */
   private appendMetricsServer(): void {
-    const dirPath = 'kubernetes-manifests/metrics-server';
-    new K8sResource(this, 'metrics-server', this.cluster, dirPath);
+    new MetricsServer(this, 'metrics-server', this.cluster);
   }
 }

@@ -841,40 +841,6 @@ Object {
       "Type": "Custom::AWSCDK-EKS-KubernetesResource",
       "UpdateReplacePolicy": "Delete",
     },
-    "AmazonEBSCSIDriver8C86C960": Object {
-      "Properties": Object {
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": Array [
-                "ec2:AttachVolume",
-                "ec2:CreateSnapshot",
-                "ec2:CreateTags",
-                "ec2:CreateVolume",
-                "ec2:DeleteSnapshot",
-                "ec2:DeleteTags",
-                "ec2:DeleteVolume",
-                "ec2:DescribeInstances",
-                "ec2:DescribeSnapshots",
-                "ec2:DescribeTags",
-                "ec2:DescribeVolumes",
-                "ec2:DetachVolume",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "AmazonEBSCSIDriver",
-        "Roles": Array [
-          Object {
-            "Ref": "clusterNodegroupcapacityNodeGroupRoleB8D8BFC1",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
     "EksRole7A4BFDF2": Object {
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
@@ -929,35 +895,6 @@ Object {
         "RoleName": "MyEKSRole",
       },
       "Type": "AWS::IAM::Role",
-    },
-    "ExternalDNSF7C23466": Object {
-      "Properties": Object {
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": "route53:ChangeResourceRecordSets",
-              "Effect": "Allow",
-              "Resource": "arn:aws:route53:::hostedzone/*",
-            },
-            Object {
-              "Action": Array [
-                "route53:ListHostedZones",
-                "route53:ListResourceRecordSets",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "ExternalDNS",
-        "Roles": Array [
-          Object {
-            "Ref": "clusterNodegroupcapacityNodeGroupRoleB8D8BFC1",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
     },
     "awscdkawseksClusterResourceProviderNestedStackawscdkawseksClusterResourceProviderNestedStackResource9827C454": Object {
       "Properties": Object {
@@ -1541,7 +1478,41 @@ Object {
       "Type": "Custom::AWSCDK-EKS-KubernetesResource",
       "UpdateReplacePolicy": "Delete",
     },
-    "clustermanifestebscsidriver8F54203C": Object {
+    "ebscsidriverAmazonEBSCSIDriverAF709507": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": Array [
+                "ec2:AttachVolume",
+                "ec2:CreateSnapshot",
+                "ec2:CreateTags",
+                "ec2:CreateVolume",
+                "ec2:DeleteSnapshot",
+                "ec2:DeleteTags",
+                "ec2:DeleteVolume",
+                "ec2:DescribeInstances",
+                "ec2:DescribeSnapshots",
+                "ec2:DescribeTags",
+                "ec2:DescribeVolumes",
+                "ec2:DetachVolume",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "AmazonEBSCSIDriver",
+        "Roles": Array [
+          Object {
+            "Ref": "clusterNodegroupcapacityNodeGroupRoleB8D8BFC1",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "ebscsidriverK8sResource2B9EF818": Object {
       "DeletionPolicy": "Delete",
       "Properties": Object {
         "ClusterName": Object {
@@ -1564,7 +1535,36 @@ Object {
       "Type": "Custom::AWSCDK-EKS-KubernetesResource",
       "UpdateReplacePolicy": "Delete",
     },
-    "clustermanifestextrernaldns48E0C6EA": Object {
+    "extrernaldnsExternalDNS992E54DD": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "route53:ChangeResourceRecordSets",
+              "Effect": "Allow",
+              "Resource": "arn:aws:route53:::hostedzone/*",
+            },
+            Object {
+              "Action": Array [
+                "route53:ListHostedZones",
+                "route53:ListResourceRecordSets",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "ExternalDNS",
+        "Roles": Array [
+          Object {
+            "Ref": "clusterNodegroupcapacityNodeGroupRoleB8D8BFC1",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "extrernaldnsK8sResource0278304D": Object {
       "DeletionPolicy": "Delete",
       "Properties": Object {
         "ClusterName": Object {

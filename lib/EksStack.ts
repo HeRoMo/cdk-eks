@@ -1,24 +1,20 @@
-import * as path from 'path';
-
 import { Construct } from '@aws-cdk/core';
 import { Vpc, InstanceType, SubnetType } from '@aws-cdk/aws-ec2';
 import {
   AccountRootPrincipal,
-  IRole,
   ManagedPolicy,
   Role,
 } from '@aws-cdk/aws-iam';
 import { Cluster, Nodegroup } from '@aws-cdk/aws-eks';
 
 import { BaseStack } from './BaseStack';
-import { loadManifestYaml } from './utils/manifest_reader';
 
 import { appDomain } from './config';
-import { createPolicy } from './policies/PolicyUtils';
 import { AlbIngressController } from './k8sResources/AlbIngressController';
 import { MetricsServer } from './k8sResources/MetricsServer';
 import { ClusterAutoscaler } from './k8sResources/ClusterAutoscaler';
 import { EbsCsiDriver } from './k8sResources/EbsCsiDriver';
+import { ExternalDns } from './k8sResources/ExternalDns';
 
 /**
  * Create EKS cluster with kubernetes resources related with AWS resources
@@ -65,7 +61,7 @@ export class EksStack extends BaseStack {
     this.appendAlbIngressController();
     this.appendClusterAutoscaler(nodeGroup);
     this.appendEbsCsiDriver(nodeGroup);
-    this.appendExternalDns(nodeGroup.role);
+    this.appendExternalDns(nodeGroup);
     this.appendMetricsServer();
   }
 
@@ -97,24 +93,10 @@ export class EksStack extends BaseStack {
    * configure External DNS
    * @param clusterNodeRole
    */
-  private appendExternalDns(clusterNodeRole: IRole): void {
-    const policy = createPolicy(this, 'ExternalDNS', 'external-dns.json');
-    clusterNodeRole.attachInlinePolicy(policy);
-
-    const externalDnsManifests = loadManifestYaml('kubernetes-manifests/exterrnal-dns/external-dns.yaml');
-
-    // eslint-disable-next-line arrow-body-style
-    const externalDnsDeployment = externalDnsManifests.find((manifest) => {
-      return manifest.kind === 'Deployment' && manifest.metadata.name === 'external-dns';
-    });
-    const container = externalDnsDeployment.spec.template.spec.containers[0];
-    container.args = container.args.map((arg: string) => {
-      if (arg.startsWith('--domain-filter=')) {
-        return `--domain-filter=${appDomain}`;
-      }
-      return arg;
-    });
-    this.cluster.addResource('extrernal-dns', ...externalDnsManifests);
+  private appendExternalDns(nodeGroup: Nodegroup): void {
+    if (appDomain) {
+      new ExternalDns(this, 'extrernal-dns', this.cluster, nodeGroup, { domain: appDomain });
+    }
   }
 
   /**

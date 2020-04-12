@@ -87,6 +87,20 @@ rules:
   - update
   - patch
 - apiGroups:
+  - snapshot.storage.k8s.io
+  resources:
+  - volumesnapshots
+  verbs:
+  - get
+  - list
+- apiGroups:
+  - snapshot.storage.k8s.io
+  resources:
+  - volumesnapshotcontents
+  verbs:
+  - get
+  - list
+- apiGroups:
   - storage.k8s.io
   resources:
   - csinodes
@@ -175,7 +189,7 @@ spec:
               key: access_key
               name: aws-secret
               optional: true
-        image: 602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/aws-ebs-csi-driver:v0.4.0
+        image: 602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/aws-ebs-csi-driver:v0.5.0
         livenessProbe:
           failureThreshold: 5
           httpGet:
@@ -209,6 +223,8 @@ spec:
       - args:
         - --csi-address=$(ADDRESS)
         - --v=5
+        - --leader-election=true
+        - --leader-election-type=leases
         env:
         - name: ADDRESS
           value: /var/lib/csi/sockets/pluginproxy/csi.sock
@@ -225,6 +241,7 @@ spec:
         - mountPath: /csi
           name: socket-dir
       nodeSelector:
+        beta.kubernetes.io/arch: amd64
         beta.kubernetes.io/os: linux
       priorityClassName: system-cluster-critical
       serviceAccount: ebs-csi-controller-sa
@@ -257,7 +274,7 @@ spec:
         env:
         - name: CSI_ENDPOINT
           value: unix:/csi/csi.sock
-        image: 602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/aws-ebs-csi-driver:v0.4.0
+        image: 602401143452.dkr.ecr.us-west-2.amazonaws.com/eks/aws-ebs-csi-driver:v0.5.0
         livenessProbe:
           failureThreshold: 5
           httpGet:
@@ -313,11 +330,11 @@ spec:
           name: plugin-dir
       hostNetwork: true
       nodeSelector:
+        beta.kubernetes.io/arch: amd64
         beta.kubernetes.io/os: linux
       priorityClassName: system-node-critical
       tolerations:
-      - key: CriticalAddonsOnly
-        operator: Exists
+      - operator: Exists
       volumes:
       - hostPath:
           path: /var/lib/kubelet

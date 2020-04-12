@@ -7,13 +7,19 @@ Github Repository: https://github.com/kubernetes-sigs/aws-alb-ingress-controller
 ## rbac-role.yaml
 
 ```
-$ wget https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.1.3/docs/examples/rbac-role.yaml
+$ wget https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.1.6/docs/examples/rbac-role.yaml
 ```
 
 ## alb-ingress-controller.yaml
 
 ```
-$ wget https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.1.3/docs/examples/alb-ingress-controller.yaml
+$ wget https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.1.6/docs/examples/alb-ingress-controller.yaml
+```
+
+## IAM Permissions
+
+```
+$ wget https://kubernetes-sigs.github.io/aws-alb-ingress-controller/examples/iam-policy.json
 ```
 
 ## Reference

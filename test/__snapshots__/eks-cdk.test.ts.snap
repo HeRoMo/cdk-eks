@@ -875,35 +875,6 @@ Object {
       },
       "Type": "AWS::IAM::Policy",
     },
-    "ClusterAutoScalerPolicy5B49D9A7": Object {
-      "Properties": Object {
-        "PolicyDocument": Object {
-          "Statement": Array [
-            Object {
-              "Action": Array [
-                "autoscaling:DescribeAutoScalingGroups",
-                "autoscaling:DescribeAutoScalingInstances",
-                "autoscaling:DescribeLaunchConfigurations",
-                "autoscaling:DescribeTags",
-                "autoscaling:SetDesiredCapacity",
-                "autoscaling:TerminateInstanceInAutoScalingGroup",
-                "ec2:DescribeLaunchTemplateVersions",
-              ],
-              "Effect": "Allow",
-              "Resource": "*",
-            },
-          ],
-          "Version": "2012-10-17",
-        },
-        "PolicyName": "ClusterAutoScalerPolicy",
-        "Roles": Array [
-          Object {
-            "Ref": "clusterNodegroupcapacityNodeGroupRoleB8D8BFC1",
-          },
-        ],
-      },
-      "Type": "AWS::IAM::Policy",
-    },
     "EksRole7A4BFDF2": Object {
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
@@ -1507,7 +1478,36 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "clustermanifestclusterautoscalerautodiscover825A804E": Object {
+    "clusterautoscalerClusterAutoScalerPolicyE94C7402": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": Array [
+                "autoscaling:DescribeAutoScalingGroups",
+                "autoscaling:DescribeAutoScalingInstances",
+                "autoscaling:DescribeLaunchConfigurations",
+                "autoscaling:DescribeTags",
+                "autoscaling:SetDesiredCapacity",
+                "autoscaling:TerminateInstanceInAutoScalingGroup",
+                "ec2:DescribeLaunchTemplateVersions",
+              ],
+              "Effect": "Allow",
+              "Resource": "*",
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "ClusterAutoScalerPolicy",
+        "Roles": Array [
+          Object {
+            "Ref": "clusterNodegroupcapacityNodeGroupRoleB8D8BFC1",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "clusterautoscalerK8sResource7B7C10AC": Object {
       "DeletionPolicy": "Delete",
       "Properties": Object {
         "ClusterName": Object {

@@ -3,7 +3,7 @@
 ## external-dns.json
 
 ```bash
-$ wget https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.1.3/docs/examples/external-dns.yaml
+$ wget https://raw.githubusercontent.com/kubernetes-sigs/aws-alb-ingress-controller/v1.1.6/docs/examples/external-dns.yaml
 ```
 
 modify the followings,

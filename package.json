@@ -37,7 +37,7 @@
     "@aws-cdk/aws-iam": "^1.32.2",
     "@aws-cdk/core": "^1.32.2",
     "js-yaml": "^3.13.1",
-    "source-map-support": "^0.5.9"
+    "source-map-support": "^0.5.18"
   },
   "license": "Apache-2.0"
 }

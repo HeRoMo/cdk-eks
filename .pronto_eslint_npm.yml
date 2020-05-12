@@ -1,0 +1,3 @@
+eslint_executable: './node_modules/.bin/eslint'
+files_to_lint: '(\.js|\.ts)$'  # TypeScriptをチェックしたいときには指定しておく
+cmd_line_opts: '. --ext .ts' # eslint のコマンドラインオプション

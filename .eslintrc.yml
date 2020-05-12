@@ -1,52 +1,33 @@
+env:
+  es6: true
+  node: true
+  jest/globals: true
 extends:
   - airbnb-base
-  - plugin:@typescript-eslint/recommended
   - plugin:import/errors
   - plugin:import/warnings
   - plugin:import/typescript
+globals:
+  Atomics: readonly
+  SharedArrayBuffer: readonly
+parser: '@typescript-eslint/parser'
+parserOptions:
+  ecmaVersion: 2018
+  sourceType: module
 plugins:
-  - "@typescript-eslint"
+  - '@typescript-eslint'
   - jest
   - import
-parser: "@typescript-eslint/parser"
-parserOptions:
-  sourceType: module
-env:
-  node: true
-  jest/globals: true,
-settings:
-  node:
-    tryExtensions:
-      - .ts
-      - .js
-      - .json
-  import/extensions:
-    - .ts
-    - .js
-  import/resolver:
-    node:
-      paths:
-        - bin
-        - lib
-        - test
-      extensions:
-        - .js
-        - .ts
 ignorePatterns:
-  - bin/**/*.js
-  - lib/**/*.js
-  - test/**/*.js
-  - bin/**/*.d.ts
-  - lib/**/*.d.ts
-  - test/**/*.d.ts
+  - '*.js'
+  - '*.d.ts'
 rules:
-  import/extensions:
-    - error
-    - ignorePackages
-    - js: never
-      ts: never
-  import/prefer-default-export: off
-  no-useless-constructor: 0
-  no-new: 0
   "@typescript-eslint/no-unused-vars": error
-  lines-between-class-members: [error, always, { exceptAfterSingleLine: true }]
+  "@typescript-eslint/no-unused-expressions": error
+  import/extensions: [error, ignorePackages, { ts: never, js: never }]
+  import/no-unresolved: error
+  import/prefer-default-export: off
+  no-new: off
+  no-unused-vars: off
+  no-useless-constructor: off
+  no-unused-expressions: off

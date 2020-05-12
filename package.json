@@ -9,8 +9,8 @@
     "watch": "tsc -w",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "lint": "eslint ./{bin,lib,test}/{**/,}*.ts",
-    "clean": "rm -f ./{bin,lib,test}/{**/,}*.{d.ts,js}",
+    "eslint": "./node_modules/.bin/eslint . --ext .ts",
+    "clean": "rm -rf ./{bin,lib,test}/{**,}/{*.d.ts,*.js}",
     "cdk": "cdk"
   },
   "devDependencies": {
@@ -24,10 +24,10 @@
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jest": "^23.8.2",
-    "jest": "^25.3.0",
-    "ts-jest": "^25.3.1",
-    "ts-node": "^8.8.2",
+    "eslint-plugin-jest": "^23.10.0",
+    "jest": "^25.5.4",
+    "ts-jest": "^25.5.1",
+    "ts-node": "^8.10.1",
     "typescript": "^3.8.3"
   },
   "dependencies": {
@@ -37,7 +37,7 @@
     "@aws-cdk/aws-iam": "^1.32.2",
     "@aws-cdk/core": "^1.32.2",
     "js-yaml": "^3.13.1",
-    "source-map-support": "^0.5.9"
+    "source-map-support": "^0.5.19"
   },
   "license": "Apache-2.0"
 }

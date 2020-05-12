@@ -3,7 +3,6 @@ import { KubernetesResource, Cluster } from '@aws-cdk/aws-eks';
 
 export abstract class K8sResource extends Construct {
   protected readonly cluster: Cluster;
-  private readonly manifestDir: string | undefined;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   constructor(scope: Construct, id: string, cluster: Cluster, props: { [key: string]: any } = {}) {

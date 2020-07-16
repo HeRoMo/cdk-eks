@@ -28,7 +28,7 @@
     "jest": "^25.5.4",
     "ts-jest": "^25.5.1",
     "ts-node": "^8.10.1",
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.7"
   },
   "dependencies": {
     "@aws-cdk/aws-autoscaling": "^1.38.0",

@@ -22,6 +22,15 @@
     "@aws-cdk/cx-api" "1.38.0"
     constructs "^3.0.2"
 
+"@aws-cdk/assets@1.57.0":
+  version "1.57.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/assets/-/assets-1.57.0.tgz#e37a61552b0c2680a09dae435a97a24a2996480b"
+  integrity sha512-+yn4YWU7LCDbL6GsvnXgY0pe7TaH8Ib+o4zowsLuMnS2l5ShtHy7dpqJj+VVO0/YR9upvmlvMg6QY6UQRpA0cA==
+  dependencies:
+    "@aws-cdk/core" "1.57.0"
+    "@aws-cdk/cx-api" "1.57.0"
+    constructs "^3.0.2"
+
 "@aws-cdk/aws-autoscaling-common@1.38.0":
   version "1.38.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-autoscaling-common/-/aws-autoscaling-common-1.38.0.tgz#2900840e8d1bf64d7c2da8eb621236b794e24c51"
@@ -31,7 +40,16 @@
     "@aws-cdk/core" "1.38.0"
     constructs "^3.0.2"
 
-"@aws-cdk/aws-autoscaling@1.38.0", "@aws-cdk/aws-autoscaling@^1.38.0":
+"@aws-cdk/aws-autoscaling-common@1.57.0":
+  version "1.57.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-autoscaling-common/-/aws-autoscaling-common-1.57.0.tgz#481f4413518ddda679c25cb6c5b5f42e83a03c3f"
+  integrity sha512-FYcqcby+ObhZEaP4za+JhwShQVAWAXQDq0DoDlYd30RgWcr7yz6gbz56G2N+/ngxFWQ42SkS+T1BqR3hsQdTmg==
+  dependencies:
+    "@aws-cdk/aws-iam" "1.57.0"
+    "@aws-cdk/core" "1.57.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-autoscaling@1.38.0":
   version "1.38.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-autoscaling/-/aws-autoscaling-1.38.0.tgz#4cf88a1ad6e2093b1de1f82fc933d0ebb820b654"
   integrity sha512-nPWWRwO6tasHiHVGKfYMDQtybgdzkW/9M8axmHrfP06bjUDaR90s6qky7wtn23Pjx3n7Qp7lZgXQfwn1maTMHA==
@@ -46,6 +64,21 @@
     "@aws-cdk/core" "1.38.0"
     constructs "^3.0.2"
 
+"@aws-cdk/aws-autoscaling@^1.57.0":
+  version "1.57.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-autoscaling/-/aws-autoscaling-1.57.0.tgz#ff662c82e5d2ecf01bfe665597ba5f6901b04465"
+  integrity sha512-UYFW/ksiOPV7aHFixOYZMqddduf39skeBb8zxZBNPEKQ2PmUzSx3ygPf5XQMKngnuf47IUKd0O7Za4fBHex9Mg==
+  dependencies:
+    "@aws-cdk/aws-autoscaling-common" "1.57.0"
+    "@aws-cdk/aws-cloudwatch" "1.57.0"
+    "@aws-cdk/aws-ec2" "1.57.0"
+    "@aws-cdk/aws-elasticloadbalancing" "1.57.0"
+    "@aws-cdk/aws-elasticloadbalancingv2" "1.57.0"
+    "@aws-cdk/aws-iam" "1.57.0"
+    "@aws-cdk/aws-sns" "1.57.0"
+    "@aws-cdk/core" "1.57.0"
+    constructs "^3.0.2"
+
 "@aws-cdk/aws-certificatemanager@1.38.0":
   version "1.38.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-certificatemanager/-/aws-certificatemanager-1.38.0.tgz#1c3a56d7d2efe4b1d3c387cb0c013097f7bbb6e2"
@@ -55,6 +88,17 @@
     "@aws-cdk/aws-lambda" "1.38.0"
     "@aws-cdk/aws-route53" "1.38.0"
     "@aws-cdk/core" "1.38.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-certificatemanager@1.57.0":
+  version "1.57.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-certificatemanager/-/aws-certificatemanager-1.57.0.tgz#7768b83db7b60bad051229c39b560e687c19dc3a"
+  integrity sha512-CMRhikcHziPrKhe/CHgQ4boCa+rG19QtF7wzTMHlAeEd7E8ruJMH9yNFtS1+MFrwLgp0hMS+H/Gyz9arJtfCrA==
+  dependencies:
+    "@aws-cdk/aws-iam" "1.57.0"
+    "@aws-cdk/aws-lambda" "1.57.0"
+    "@aws-cdk/aws-route53" "1.57.0"
+    "@aws-cdk/core" "1.57.0"
     constructs "^3.0.2"
 
 "@aws-cdk/aws-cloudformation@1.38.0":
@@ -79,7 +123,24 @@
     "@aws-cdk/core" "1.38.0"
     constructs "^3.0.2"
 
-"@aws-cdk/aws-ec2@1.38.0", "@aws-cdk/aws-ec2@^1.38.0":
+"@aws-cdk/aws-cloudwatch@1.57.0":
+  version "1.57.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-cloudwatch/-/aws-cloudwatch-1.57.0.tgz#43ee7a14b869f698ffcd3e72624bb2b2f673b1d0"
+  integrity sha512-sKS0LURGmL1jbgrG9UGUxh0q+yxGVDmsds3eoJWLc0qyVrD9KN3wxU+QuSLqQdZGGun/tDIv39UQ1l+Y6vodsw==
+  dependencies:
+    "@aws-cdk/aws-iam" "1.57.0"
+    "@aws-cdk/core" "1.57.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-codeguruprofiler@1.57.0":
+  version "1.57.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-codeguruprofiler/-/aws-codeguruprofiler-1.57.0.tgz#84aea6ae7c39669a4c2ce0ba36317e1af8c2f2b8"
+  integrity sha512-69KWy67Lo20DcFXSuSxlD5Px08jnDtkLIMroF8Zp9dEF5maxgy41i26FoY4hQQnXiTKopA8IPVxHvkouRxNutQ==
+  dependencies:
+    "@aws-cdk/aws-iam" "1.57.0"
+    "@aws-cdk/core" "1.57.0"
+
+"@aws-cdk/aws-ec2@1.38.0":
   version "1.38.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-ec2/-/aws-ec2-1.38.0.tgz#144257756369c7d43a739ceff7696729064fd517"
   integrity sha512-GWtSRbkbkI6uBMYLnJam3/IsVrOzmz4K+6SFLM+z0DxY9zF+TBe0TNCbY1SOkvLZ/b4ZLMpDbCnnFXFuPW4qyA==
@@ -93,6 +154,35 @@
     "@aws-cdk/core" "1.38.0"
     "@aws-cdk/cx-api" "1.38.0"
     "@aws-cdk/region-info" "1.38.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-ec2@1.57.0", "@aws-cdk/aws-ec2@^1.38.0":
+  version "1.57.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-ec2/-/aws-ec2-1.57.0.tgz#1f7a9ce5926a1cc35cd0b78cb27f5b03967b9dfa"
+  integrity sha512-ptqXTCm0YE87YyLovVCmMVoqJ3V4yCTRJPXbA9j+h1eJcnKamTI2FmYqVDGrysAGYLAJyzi233sstfMFbks94g==
+  dependencies:
+    "@aws-cdk/aws-cloudwatch" "1.57.0"
+    "@aws-cdk/aws-iam" "1.57.0"
+    "@aws-cdk/aws-kms" "1.57.0"
+    "@aws-cdk/aws-logs" "1.57.0"
+    "@aws-cdk/aws-s3" "1.57.0"
+    "@aws-cdk/aws-ssm" "1.57.0"
+    "@aws-cdk/cloud-assembly-schema" "1.57.0"
+    "@aws-cdk/core" "1.57.0"
+    "@aws-cdk/cx-api" "1.57.0"
+    "@aws-cdk/region-info" "1.57.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-efs@1.57.0":
+  version "1.57.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-efs/-/aws-efs-1.57.0.tgz#be9b6b15289c4347f2d9801272e40f27d04901d2"
+  integrity sha512-vrxQAdG3c4KYGPnE6+eppyKHnqpdP/15VIC8ihFxpqdKBeQK2CguTZuN/dKMHWvhN6F2iyvRoGWSDzqI5uTbrg==
+  dependencies:
+    "@aws-cdk/aws-ec2" "1.57.0"
+    "@aws-cdk/aws-kms" "1.57.0"
+    "@aws-cdk/cloud-assembly-schema" "1.57.0"
+    "@aws-cdk/core" "1.57.0"
+    "@aws-cdk/cx-api" "1.57.0"
     constructs "^3.0.2"
 
 "@aws-cdk/aws-eks@^1.38.0":
@@ -118,6 +208,15 @@
     "@aws-cdk/core" "1.38.0"
     constructs "^3.0.2"
 
+"@aws-cdk/aws-elasticloadbalancing@1.57.0":
+  version "1.57.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-elasticloadbalancing/-/aws-elasticloadbalancing-1.57.0.tgz#d050c0784e1e9cb47d836976a49ac49bc56a8cf4"
+  integrity sha512-pK8fFu7g7MnGz4Dp+qlDEEXF2Vq2UQyVRgVt+wvcMWHbZN35wkhRM8XVvZ/QO7jyk4Dz5+hRy+vUbi5SuVha9w==
+  dependencies:
+    "@aws-cdk/aws-ec2" "1.57.0"
+    "@aws-cdk/core" "1.57.0"
+    constructs "^3.0.2"
+
 "@aws-cdk/aws-elasticloadbalancingv2@1.38.0":
   version "1.38.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-elasticloadbalancingv2/-/aws-elasticloadbalancingv2-1.38.0.tgz#a30e1cfd8f21b8e39499d2db8ef3249e4824ac29"
@@ -132,6 +231,21 @@
     "@aws-cdk/core" "1.38.0"
     constructs "^3.0.2"
 
+"@aws-cdk/aws-elasticloadbalancingv2@1.57.0":
+  version "1.57.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-elasticloadbalancingv2/-/aws-elasticloadbalancingv2-1.57.0.tgz#0e388a8e727189749fac13c06f83e3aecebbcf5c"
+  integrity sha512-fSoqsgWBawL6eYIoAoF7O0QVwqlvAmtKltlUJ4mKS0Umor3MXEGrsdaMKitgNx6/mToJdYtfSe6UDMWI3HdjyQ==
+  dependencies:
+    "@aws-cdk/aws-certificatemanager" "1.57.0"
+    "@aws-cdk/aws-cloudwatch" "1.57.0"
+    "@aws-cdk/aws-ec2" "1.57.0"
+    "@aws-cdk/aws-iam" "1.57.0"
+    "@aws-cdk/aws-lambda" "1.57.0"
+    "@aws-cdk/aws-s3" "1.57.0"
+    "@aws-cdk/core" "1.57.0"
+    "@aws-cdk/region-info" "1.57.0"
+    constructs "^3.0.2"
+
 "@aws-cdk/aws-events@1.38.0":
   version "1.38.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-events/-/aws-events-1.38.0.tgz#e94887659df78593c0cd7cb1f915514cae3a31cf"
@@ -141,13 +255,31 @@
     "@aws-cdk/core" "1.38.0"
     constructs "^3.0.2"
 
-"@aws-cdk/aws-iam@1.38.0", "@aws-cdk/aws-iam@^1.38.0":
+"@aws-cdk/aws-events@1.57.0":
+  version "1.57.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-events/-/aws-events-1.57.0.tgz#1bb4c9281b06e9b577d7a02d9ebc7b41b937b3d3"
+  integrity sha512-d2681DHe+gFQq+o4GXglnaEKmEorCpTYPQIbbRRO3RQzggSLdJMYFoIio3Vft3xeuaxpZCpNwyJ6mROdgiq3eg==
+  dependencies:
+    "@aws-cdk/aws-iam" "1.57.0"
+    "@aws-cdk/core" "1.57.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-iam@1.38.0":
   version "1.38.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-iam/-/aws-iam-1.38.0.tgz#1c43e907f9f351a80f00822548d1e02dfd154b96"
   integrity sha512-VTmjKdw0J3dlpli4IFgdxIS7ydJIaoCZVmpyRPyecujVcU14hD+OJ+fwnCaZ42+2G0DGABNq5BGxS6OyYaBVcw==
   dependencies:
     "@aws-cdk/core" "1.38.0"
     "@aws-cdk/region-info" "1.38.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-iam@1.57.0", "@aws-cdk/aws-iam@^1.38.0":
+  version "1.57.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-iam/-/aws-iam-1.57.0.tgz#d6c8e901fa81e3c872d209bd46fd41e3f024d6b2"
+  integrity sha512-vOltgt7CDEZ9Zko5tBhxP6bwuOAJA5ev04w1rwAcDD8W4UGHnz+2D1b0eAHfLhsICVagwfNEG+KmDyyKzrzyFw==
+  dependencies:
+    "@aws-cdk/core" "1.57.0"
+    "@aws-cdk/region-info" "1.57.0"
     constructs "^3.0.2"
 
 "@aws-cdk/aws-kms@1.38.0":
@@ -157,6 +289,15 @@
   dependencies:
     "@aws-cdk/aws-iam" "1.38.0"
     "@aws-cdk/core" "1.38.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-kms@1.57.0":
+  version "1.57.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-kms/-/aws-kms-1.57.0.tgz#6fc0868b142c497d7c70c461596bfb111182c77b"
+  integrity sha512-kBoOCPEZTTCU2JN9LfVy7qYKI9+XGyCPybcxbrXhYjM1eC2tKEcCub7fQiQ3He+H4QEgfEqoKhwJlLHUDMSKtQ==
+  dependencies:
+    "@aws-cdk/aws-iam" "1.57.0"
+    "@aws-cdk/core" "1.57.0"
     constructs "^3.0.2"
 
 "@aws-cdk/aws-lambda@1.38.0":
@@ -176,6 +317,25 @@
     "@aws-cdk/cx-api" "1.38.0"
     constructs "^3.0.2"
 
+"@aws-cdk/aws-lambda@1.57.0":
+  version "1.57.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-lambda/-/aws-lambda-1.57.0.tgz#430314f57e07529faf1aee37b631b38db91f3a60"
+  integrity sha512-LNYO32T6ljUbfIEh1rOPFePQfUGF8GzAmazQ8A/G0aE8e919aJexWJ4k2YVcKAoKQRl7nPAZMXWWg2VfxEocDQ==
+  dependencies:
+    "@aws-cdk/aws-cloudwatch" "1.57.0"
+    "@aws-cdk/aws-codeguruprofiler" "1.57.0"
+    "@aws-cdk/aws-ec2" "1.57.0"
+    "@aws-cdk/aws-efs" "1.57.0"
+    "@aws-cdk/aws-events" "1.57.0"
+    "@aws-cdk/aws-iam" "1.57.0"
+    "@aws-cdk/aws-logs" "1.57.0"
+    "@aws-cdk/aws-s3" "1.57.0"
+    "@aws-cdk/aws-s3-assets" "1.57.0"
+    "@aws-cdk/aws-sqs" "1.57.0"
+    "@aws-cdk/core" "1.57.0"
+    "@aws-cdk/cx-api" "1.57.0"
+    constructs "^3.0.2"
+
 "@aws-cdk/aws-logs@1.38.0":
   version "1.38.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-logs/-/aws-logs-1.38.0.tgz#9c054b59f62b66d0861d4483f6ec2f79fd8b9729"
@@ -184,6 +344,16 @@
     "@aws-cdk/aws-cloudwatch" "1.38.0"
     "@aws-cdk/aws-iam" "1.38.0"
     "@aws-cdk/core" "1.38.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-logs@1.57.0":
+  version "1.57.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-logs/-/aws-logs-1.57.0.tgz#b1b1b4be8ff1a0041f2c84ce21db78b80d26ffb6"
+  integrity sha512-q8hmcT7f6ZSHs0qypncTvIag7onKvt3gQIknPDnn3712rP3yz0zJlDfcN/TXRKEPxGVjGB9VCM/9q9pBKwbzQQ==
+  dependencies:
+    "@aws-cdk/aws-cloudwatch" "1.57.0"
+    "@aws-cdk/aws-iam" "1.57.0"
+    "@aws-cdk/core" "1.57.0"
     constructs "^3.0.2"
 
 "@aws-cdk/aws-route53@1.38.0":
@@ -195,6 +365,17 @@
     "@aws-cdk/aws-logs" "1.38.0"
     "@aws-cdk/cloud-assembly-schema" "1.38.0"
     "@aws-cdk/core" "1.38.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-route53@1.57.0":
+  version "1.57.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-route53/-/aws-route53-1.57.0.tgz#3e9be405b55a7b041482fa486e3b90ddc24754e0"
+  integrity sha512-SR+Q6fxDNzhsrc0gKfdXH5CZYH++7qwj5Hcd5CXKKHi9hw01GrYadTz8eXLFRb6Bt8coY5FN+KDbXc/wCI0H4g==
+  dependencies:
+    "@aws-cdk/aws-ec2" "1.57.0"
+    "@aws-cdk/aws-logs" "1.57.0"
+    "@aws-cdk/cloud-assembly-schema" "1.57.0"
+    "@aws-cdk/core" "1.57.0"
     constructs "^3.0.2"
 
 "@aws-cdk/aws-s3-assets@1.38.0":
@@ -209,6 +390,19 @@
     "@aws-cdk/cx-api" "1.38.0"
     constructs "^3.0.2"
 
+"@aws-cdk/aws-s3-assets@1.57.0":
+  version "1.57.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-s3-assets/-/aws-s3-assets-1.57.0.tgz#949ef5f3a045a2e728dead6bc935901d82181897"
+  integrity sha512-zX6xvP9m+InbD0IT40yCBRCtg0EW66WGMrd7yi9p4/kK8SSDdRP5LITJTzNrche24LUV2jWpzSBPVAm8QCp7JQ==
+  dependencies:
+    "@aws-cdk/assets" "1.57.0"
+    "@aws-cdk/aws-iam" "1.57.0"
+    "@aws-cdk/aws-kms" "1.57.0"
+    "@aws-cdk/aws-s3" "1.57.0"
+    "@aws-cdk/core" "1.57.0"
+    "@aws-cdk/cx-api" "1.57.0"
+    constructs "^3.0.2"
+
 "@aws-cdk/aws-s3@1.38.0":
   version "1.38.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-s3/-/aws-s3-1.38.0.tgz#eb83d90bbe995a5870d50908a2c802f7f7412870"
@@ -218,6 +412,17 @@
     "@aws-cdk/aws-iam" "1.38.0"
     "@aws-cdk/aws-kms" "1.38.0"
     "@aws-cdk/core" "1.38.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-s3@1.57.0":
+  version "1.57.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-s3/-/aws-s3-1.57.0.tgz#5d9d318e0ab78896f28276bf03e94835d483e33e"
+  integrity sha512-pwqLL6D+2saDNAlue74iBphPJ9E4ejXxrXg3llMLbud6GIjtzXz4G8H7z6OwkgdceEK5Sx3eVQNR4MPREdcO5g==
+  dependencies:
+    "@aws-cdk/aws-events" "1.57.0"
+    "@aws-cdk/aws-iam" "1.57.0"
+    "@aws-cdk/aws-kms" "1.57.0"
+    "@aws-cdk/core" "1.57.0"
     constructs "^3.0.2"
 
 "@aws-cdk/aws-sns@1.38.0":
@@ -232,6 +437,19 @@
     "@aws-cdk/core" "1.38.0"
     constructs "^3.0.2"
 
+"@aws-cdk/aws-sns@1.57.0":
+  version "1.57.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-sns/-/aws-sns-1.57.0.tgz#ea380ded10b8f04b0e768160bd8fbd51f7d59898"
+  integrity sha512-kJGbpOiUJBJext6DuWPkF6N3k/TzGeS/jXCCTWRbJoNFhyfor0G3IqHsuenLioNFz5IhPXJHEjW2vmGy5zjAlw==
+  dependencies:
+    "@aws-cdk/aws-cloudwatch" "1.57.0"
+    "@aws-cdk/aws-events" "1.57.0"
+    "@aws-cdk/aws-iam" "1.57.0"
+    "@aws-cdk/aws-kms" "1.57.0"
+    "@aws-cdk/aws-sqs" "1.57.0"
+    "@aws-cdk/core" "1.57.0"
+    constructs "^3.0.2"
+
 "@aws-cdk/aws-sqs@1.38.0":
   version "1.38.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-sqs/-/aws-sqs-1.38.0.tgz#4e40c80d075874a78a3034a626da8007758e4122"
@@ -243,6 +461,17 @@
     "@aws-cdk/core" "1.38.0"
     constructs "^3.0.2"
 
+"@aws-cdk/aws-sqs@1.57.0":
+  version "1.57.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-sqs/-/aws-sqs-1.57.0.tgz#9ee09b9d9a1a9adb6f28d5e68752ec0fcda5bf42"
+  integrity sha512-Yu75GtLOykW/LPTp6fArLMsz8msTnnD0afIYcifzMbIU+EoqGtsGLkJat1rqHyU4t6g3cbcK8f7CVWSy+YyTZQ==
+  dependencies:
+    "@aws-cdk/aws-cloudwatch" "1.57.0"
+    "@aws-cdk/aws-iam" "1.57.0"
+    "@aws-cdk/aws-kms" "1.57.0"
+    "@aws-cdk/core" "1.57.0"
+    constructs "^3.0.2"
+
 "@aws-cdk/aws-ssm@1.38.0":
   version "1.38.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-ssm/-/aws-ssm-1.38.0.tgz#f2daab8a9e82af856fd92ac6e922630edb7c4301"
@@ -252,6 +481,17 @@
     "@aws-cdk/aws-kms" "1.38.0"
     "@aws-cdk/cloud-assembly-schema" "1.38.0"
     "@aws-cdk/core" "1.38.0"
+    constructs "^3.0.2"
+
+"@aws-cdk/aws-ssm@1.57.0":
+  version "1.57.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-ssm/-/aws-ssm-1.57.0.tgz#d684763501ad684d2d0bcbc71ef3378c98ad4ef0"
+  integrity sha512-nzDqMlqCooRbIZ3BazJMIXmoQWTMjJxP0Xn7bIfyjiTQwVj76h8r7n20uajXfCVMNcDj1Mpq+QBvNdyZPG/R6g==
+  dependencies:
+    "@aws-cdk/aws-iam" "1.57.0"
+    "@aws-cdk/aws-kms" "1.57.0"
+    "@aws-cdk/cloud-assembly-schema" "1.57.0"
+    "@aws-cdk/core" "1.57.0"
     constructs "^3.0.2"
 
 "@aws-cdk/cdk-assets-schema@1.38.0":
@@ -276,6 +516,14 @@
     jsonschema "^1.2.5"
     semver "^7.2.2"
 
+"@aws-cdk/cloud-assembly-schema@1.57.0":
+  version "1.57.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/cloud-assembly-schema/-/cloud-assembly-schema-1.57.0.tgz#bf9c63cf3ca8cbf0f37886b43b12f5fab5c7c989"
+  integrity sha512-IJyV3pgMvpbaIVYpUkBGsxIWh+VK7TxuTbEyHfBra5+VgXLoFdSG2UO80b4v6ou+occRqUGbqAnc/VfYr1uuvw==
+  dependencies:
+    jsonschema "^1.2.5"
+    semver "^7.2.2"
+
 "@aws-cdk/cloudformation-diff@1.38.0":
   version "1.38.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/cloudformation-diff/-/cloudformation-diff-1.38.0.tgz#40bbcabea5a12b4a9ab6ed723ca13b3edad5c6b3"
@@ -288,7 +536,7 @@
     string-width "^4.2.0"
     table "^5.4.6"
 
-"@aws-cdk/core@1.38.0", "@aws-cdk/core@^1.38.0":
+"@aws-cdk/core@1.38.0":
   version "1.38.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/core/-/core-1.38.0.tgz#eb353103a25ac54a29d4b39fd66fd6ad918b78b8"
   integrity sha512-rLMrLUo8xudfJN8WASY1i8kgTwcjdmN5F9+9Tm2oCGHLMQEBSLYRQFlmYHma28f4FPGsd7YtcvNQjeNBRkywOw==
@@ -296,6 +544,17 @@
     "@aws-cdk/cloud-assembly-schema" "1.38.0"
     "@aws-cdk/cx-api" "1.38.0"
     constructs "^3.0.2"
+    minimatch "^3.0.4"
+
+"@aws-cdk/core@1.57.0", "@aws-cdk/core@^1.38.0":
+  version "1.57.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/core/-/core-1.57.0.tgz#44e19a18f05d0b0742e5d406474000ef2f6f5db9"
+  integrity sha512-NOE9u2tVwEF+EN5CYaoC34csBgKLA9rjCWCB6R64RPQ2MlhBFCvQxdG2ZO26nOOvH+yv/3zlylM7F546mfQMHg==
+  dependencies:
+    "@aws-cdk/cloud-assembly-schema" "1.57.0"
+    "@aws-cdk/cx-api" "1.57.0"
+    constructs "^3.0.2"
+    fs-extra "^9.0.1"
     minimatch "^3.0.4"
 
 "@aws-cdk/custom-resources@1.38.0":
@@ -319,10 +578,23 @@
     "@aws-cdk/cloud-assembly-schema" "1.38.0"
     semver "^7.2.2"
 
+"@aws-cdk/cx-api@1.57.0":
+  version "1.57.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/cx-api/-/cx-api-1.57.0.tgz#e6ad6936e1781b821317be60978fb20111cb4d16"
+  integrity sha512-h2qTTofE8cE1rSZB9ny+7AjjmxEdKoxhq+GsQebQ5NZkrN/Rbc+DL77S/GG53koPG4u/ZoA4UcdLz/JqiGgdPA==
+  dependencies:
+    "@aws-cdk/cloud-assembly-schema" "1.57.0"
+    semver "^7.2.2"
+
 "@aws-cdk/region-info@1.38.0":
   version "1.38.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/region-info/-/region-info-1.38.0.tgz#cb60662d6e611fa503fa11d14d70c6e271015597"
   integrity sha512-xBCMIGH4KsWY3ohKHOLli9dnCw/DLKvtaU+FvqKiVCsc7ZIR/o/9G9JqfZ+1pG1BGSRGE7urINQB0YZwtaM0xg==
+
+"@aws-cdk/region-info@1.57.0":
+  version "1.57.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/region-info/-/region-info-1.57.0.tgz#ae45fcf82fe7c66348c8b7ecfbb738dfb08bde9d"
+  integrity sha512-U2V2f/PdD2VDGVwGGShb+7dqhmEEmShlOOdvDQvTmAg2SW6HwOt/rsz+va6EzvWV7fmxtFEfMiJVpnheZ1Vwyg==
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.8.3":
   version "7.8.3"
@@ -1222,6 +1494,11 @@ asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
   integrity sha1-x57Zf380y48robyXkLzDZkdLS3k=
+
+at-least-node@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/at-least-node/-/at-least-node-1.0.0.tgz#602cd4b46e844ad4effc92a8011a3c46e0238dc2"
+  integrity sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==
 
 atob@^2.1.2:
   version "2.1.2"
@@ -2436,6 +2713,16 @@ fs-extra@^8.1.0:
     jsonfile "^4.0.0"
     universalify "^0.1.0"
 
+fs-extra@^9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-9.0.1.tgz#910da0062437ba4c39fedd863f1675ccfefcb9fc"
+  integrity sha512-h2iAoN838FqAFJY2/qVpzFXy+EBxfVE220PalAqQLDVsFOHLJrZvut5puAbCdNv6WJk+B8ihI+k0c7JK5erwqQ==
+  dependencies:
+    at-least-node "^1.0.0"
+    graceful-fs "^4.2.0"
+    jsonfile "^6.0.1"
+    universalify "^1.0.0"
+
 fs.realpath@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
@@ -3502,6 +3789,15 @@ jsonfile@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/jsonfile/-/jsonfile-4.0.0.tgz#8771aae0799b64076b76640fca058f9c10e33ecb"
   integrity sha1-h3Gq4HmbZAdrdmQPygWPnBDjPss=
+  optionalDependencies:
+    graceful-fs "^4.1.6"
+
+jsonfile@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/jsonfile/-/jsonfile-6.0.1.tgz#98966cba214378c8c84b82e085907b40bf614179"
+  integrity sha512-jR2b5v7d2vIOust+w3wtFKZIfpC2pnRmFAhAC/BuweZFQR8qZzxH1OyrQ10HmdVYiXWkYUqPVsz91cG7EL2FBg==
+  dependencies:
+    universalify "^1.0.0"
   optionalDependencies:
     graceful-fs "^4.1.6"
 
@@ -5253,6 +5549,11 @@ universalify@^0.1.0:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/universalify/-/universalify-0.1.2.tgz#b646f69be3942dabcecc9d6639c80dc105efaa66"
   integrity sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==
+
+universalify@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/universalify/-/universalify-1.0.0.tgz#b61a1da173e8435b2fe3c67d29b9adf8594bd16d"
+  integrity sha512-rb6X1W158d7pRQBg5gkR8uPaSfiids68LTJQYOtEUhoJUWBdaQHsuT/EUduxXYxcrt4r5PJ4fuHW1MHT6p0qug==
 
 unpipe@1.0.0:
   version "1.0.0"
